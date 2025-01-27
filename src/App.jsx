@@ -1,14 +1,23 @@
-import { useState } from 'react'
 import './App.css'
-import Header from './components/Header.jsx'
+import { Layout } from './components'
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const theme = useSelector((state) => state.theme.theme);
+
+  useEffect(() => {
+    // Apply the theme class to the <html> element
+    const root = document.documentElement;
+    root.classList.remove("light", "dark");
+    root.classList.add(theme);
+  }, [theme]);
 
   return (
-    <>
-      <Header />
-    </>
+    <Layout>
+      {/* Main content goes here */}
+      <h1 className="text-center text-3xl">Welcome to My App</h1>
+    </Layout>
   )
 }
 

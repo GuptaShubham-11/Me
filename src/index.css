@@ -1,7 +1,9 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Define Light Theme Colors using custom properties */
 @theme {
-  /* Light Theme Colors */
   --color-primaryLight-500: oklch(0.65 0.15 240);
   /* Yinmn Blue */
   --color-secondaryLight-500: oklch(0.80 0.12 150);
@@ -13,7 +15,6 @@
   --color-textLight-500: oklch(0.15 0.01 0);
   /* Dark Gray */
 
-  /* Dark Theme Colors */
   --color-primaryDark-500: oklch(0.55 0.10 250);
   /* Silver Lake Blue */
   --color-secondaryDark-500: oklch(0.65 0.20 290);
@@ -26,14 +27,14 @@
   /* Off-White */
 }
 
-body {
+html.light,
+body.light {
   background-color: var(--color-backgroundLight-500);
   color: var(--color-textLight-500);
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: var(--color-backgroundDark-500);
-    color: var(--color-textDark-500);
-  }
+html.dark,
+body.dark {
+  background-color: var(--color-backgroundDark-500);
+  color: var(--color-textDark-500);
 }
