@@ -19,12 +19,11 @@ const ThemeToggle = () => {
     return (
         <button
             onClick={handleToggle}
-            className={`p-2 px-4 rounded cursor-pointer 
-        bg-primaryLight-500 text-textLight-500 
-        dark:bg-primaryDark-500 dark:text-textDark-500 
-        hover:bg-accentLight-500 dark:hover:bg-accentDark-500 `}
+            className={`p-2 px-4 rounded outline-none cursor-pointer 
+        bg-primaryLight-500 text-textDark-500 
+        dark:bg-primaryDark-500 dark:text-textDark-500 `}
         >
-            {theme === "dark" ? "🌙 Dark" : "☀️ Light"}
+            {theme === "dark" ? "Dark" : " Light"}
         </button>
 
     );
