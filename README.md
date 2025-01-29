@@ -83,8 +83,8 @@ This is a personal portfolio website built using React, Tailwind CSS 4.0, and Fr
 
 ## Folder Structure
 
-- `public/`: Contains static assets like images and the `index.html` file.
-- `src/`: Contains all the source code.
+  - `public/`: Contains static assets like images and the `index.html` file.
+  - `src/`: Contains all the source code.
   - `components/`: Includes reusable components like `Header`, `Footer`, `Layout`, and `ThemeToggle`.
   - `features/`: Contains Redux slice files (e.g., `themeSlice.js`).
   - `store/`: Includes the Redux store configuration.
