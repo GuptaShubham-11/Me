@@ -6,6 +6,7 @@ This is a personal portfolio website built using React, Tailwind CSS 4.0, and Fr
 ## Technologies Used
 - **React**: A JavaScript library for building user interfaces.
 - **Tailwind CSS 4.0**: A utility-first CSS framework for designing responsive layouts.
+- **Redux**: A state management library.
 - **Framer Motion**: A library for adding animations to React components.
 - **Custom Cursor**: A custom cursor implementation for a more interactive user experience.
 
@@ -51,13 +52,13 @@ This is a personal portfolio website built using React, Tailwind CSS 4.0, and Fr
 1. Clone the repository:
 
    ```
-   git clone https://github.com/guptashubham-11/guptashubham-11-me.git
+   git clone https://github.com/guptashubham-11/me
    ```
 
 2. Navigate into the project directory:
 
    ```
-   cd guptashubham-11-me
+   cd me
    ```
 
 3. Install the dependencies:
@@ -72,7 +73,7 @@ This is a personal portfolio website built using React, Tailwind CSS 4.0, and Fr
    npm run dev
    ```
 
-   The app will be running on `http://localhost:3000` by default.
+   The app will be running on `http://localhost:5173` by default.
 
 ## Features
 - **Responsive Design**: The website is fully responsive and adjusts to different screen sizes.
