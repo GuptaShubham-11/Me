@@ -1,5 +1,5 @@
 
-# GuptaShubham-11-Me Portfolio
+# Me
 
 This is a personal portfolio website built using React, Tailwind CSS 4.0, and Framer Motion for animation. The project features a custom cursor and a dark/light theme toggle.
 
