@@ -1,7 +1,9 @@
-import './App.css'
-import { Layout } from './components'
+import './App.css';
+import { Layout } from './components';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom'; // Import BrowserRouter
+import Main from './pages/Main.jsx';
 
 function App() {
   const theme = useSelector((state) => state.theme.theme);
@@ -14,11 +16,12 @@ function App() {
   }, [theme]);
 
   return (
-    <Layout>
-      {/* Main content goes here */}
-      <h1 className="text-center text-3xl">Welcome to My App</h1>
-    </Layout>
-  )
+    <Router>  {/* Wrap the components in BrowserRouter */}
+      <Layout>
+        <Main />
+      </Layout>
+    </Router>
+  );
 }
 
-export default App
+export default App;
