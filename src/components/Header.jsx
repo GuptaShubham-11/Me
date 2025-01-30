@@ -1,41 +1,41 @@
 import { ThemeToggle } from ".";
 import { useState, useEffect } from "react";
 import Confetti from "react-confetti";
-import { useWindowSize } from "react-use"; // For responsive confetti effect
+import { useWindowSize } from "react-use";
 
 export default function Header() {
-    const [star, setStar] = useState(0);  // Current star count
-    const [showConfetti, setShowConfetti] = useState(false);  // Confetti state
-    const { width, height } = useWindowSize();  // Get screen size
+    const [showConfetti, setShowConfetti] = useState(false);
+    const [starCount, setStarCount] = useState(0);
+    const [isStarred, setIsStarred] = useState(false);
+    const { width, height } = useWindowSize();
 
+    // Load from localStorage on mount
     useEffect(() => {
-        const stared = localStorage.getItem("stared");
-        if (stared === "true") {
-            setStar(1);
-        } else {
-            setStar(0);
-        }
+        const savedStar = localStorage.getItem("isStar") === "true";
+        const savedCount = parseInt(localStorage.getItem("starCount")) || 0;
+        setIsStarred(savedStar);
+        setStarCount(savedCount);
     }, []);
 
     const toggleStar = () => {
-        setStar(prev => {
-            const newStar = prev === 0 ? 1 : 0;
-            localStorage.setItem("stared", newStar === 1 ? "true" : "false");
+        let newStarred = !isStarred;
+        let newCount = newStarred ? starCount + 1 : Math.max(0, starCount - 1);
 
-            if (newStar === 1) {
-                setShowConfetti(true);
-                setTimeout(() => setShowConfetti(false), 5000);
-            }
+        setIsStarred(newStarred);
+        setStarCount(newCount);
+        localStorage.setItem("isStar", newStarred.toString());
+        localStorage.setItem("starCount", newCount.toString());
 
-            return newStar;
-        });
+        if (newStarred) {
+            setShowConfetti(true);
+            setTimeout(() => setShowConfetti(false), 5000);
+        }
     };
 
     return (
         <>
             {/* 🎉 Confetti Effect (only when starred) */}
             {showConfetti && <Confetti width={width} height={height} numberOfPieces={200} recycle={false} />}
-
 
             <header className="fixed top-0 left-0 w-full z-50 p-4 flex justify-between items-center 
                 transition-all ease-in-out duration-300 bg-opacity-80 bg-transparent 
@@ -54,7 +54,7 @@ export default function Header() {
                             bg-primaryLight-500 text-textDark-500 
                             dark:bg-primaryDark-500 dark:text-textDark-500 font-bold"
                     >
-                        {star === 1 ? "Un-Star" : "Star"} 🌟
+                        {isStarred ? "Un-Star" : "Star"} 🌟 {starCount}
                     </button>
                 </div>
             </header>
