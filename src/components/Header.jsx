@@ -4,14 +4,17 @@ import Confetti from "react-confetti";
 import { useWindowSize } from "react-use"; // For responsive confetti effect
 
 export default function Header() {
-    const [star, setStar] = useState(0);
-    const [showConfetti, setShowConfetti] = useState(false);
-    const { width, height } = useWindowSize(); // Get screen size
+    const [star, setStar] = useState(0);  // Current star count
+    const [showConfetti, setShowConfetti] = useState(false);  // Confetti state
+    const { width, height } = useWindowSize();  // Get screen size
 
-    // Initialize star count from localStorage
     useEffect(() => {
-        const stared = localStorage.getItem("stared") === "true";
-        setStar(stared ? 1 : 0);
+        const stared = localStorage.getItem("stared");
+        if (stared === "true") {
+            setStar(1);
+        } else {
+            setStar(0);
+        }
     }, []);
 
     const toggleStar = () => {
@@ -21,8 +24,9 @@ export default function Header() {
 
             if (newStar === 1) {
                 setShowConfetti(true);
-                setTimeout(() => setShowConfetti(false), 5000); // Stop confetti after 3s
+                setTimeout(() => setShowConfetti(false), 5000);
             }
+
             return newStar;
         });
     };
@@ -32,7 +36,7 @@ export default function Header() {
             {/* 🎉 Confetti Effect (only when starred) */}
             {showConfetti && <Confetti width={width} height={height} numberOfPieces={200} recycle={false} />}
 
-            {/* Header */}
+
             <header className="fixed top-0 left-0 w-full z-50 p-4 flex justify-between items-center 
                 transition-all ease-in-out duration-300 bg-opacity-80 bg-transparent 
                 backdrop-blur-md text-textDark-500 dark:text-textDark-500">
@@ -50,7 +54,7 @@ export default function Header() {
                             bg-primaryLight-500 text-textDark-500 
                             dark:bg-primaryDark-500 dark:text-textDark-500 font-bold"
                     >
-                        {star} 🌟
+                        {star === 1 ? "Un-Star" : "Star"} 🌟
                     </button>
                 </div>
             </header>
