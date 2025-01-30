@@ -35,7 +35,7 @@ export default function Header() {
     return (
         <>
             {/* 🎉 Confetti Effect (only when starred) */}
-            {showConfetti && <Confetti width={width} height={height} numberOfPieces={200} recycle={false} />}
+            {showConfetti && <Confetti width={width} height={height} numberOfPieces={300} recycle={false} />}
 
             <header className="fixed top-0 left-0 w-full z-50 p-4 flex justify-between items-center 
                 transition-all ease-in-out duration-300 bg-opacity-80 bg-transparent 
@@ -54,7 +54,7 @@ export default function Header() {
                             bg-primaryLight-500 text-textDark-500 
                             dark:bg-primaryDark-500 dark:text-textDark-500 font-bold"
                     >
-                        {isStarred ? "Un-Star" : "Star"} 🌟 {starCount}
+                        {isStarred ? "Un-Star" : "Star"} 🌟
                     </button>
                 </div>
             </header>
