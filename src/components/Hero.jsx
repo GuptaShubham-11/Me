@@ -2,9 +2,7 @@ import { motion } from "framer-motion";
 import profilePic from "../assets/ShubhamGupta.jpeg";
 import { BackgroundAnimation } from ".";
 
-
 export default function Hero() {
-
     return (
         <section id="home" className="relative w-full flex items-center justify-center px-6 md:px-16 pb-20 bg-backgroundLight-500 dark:bg-backgroundDark-500 overflow-hidden">
             <BackgroundAnimation />
@@ -22,7 +20,6 @@ export default function Hero() {
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ duration: 0.8, delay: 0.3 }}
-                    whileHover={{ rotate: 10 }}
                 >
                     <motion.img
                         src={profilePic}
@@ -31,7 +28,6 @@ export default function Hero() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 1.2, delay: 0.5 }}
-                        whileHover={{ scale: 1.1 }}
                     />
                 </motion.div>
 
@@ -41,7 +37,6 @@ export default function Hero() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.8, delay: 0.5 }}
-                    whileHover={{ scale: 1.08 }}
                 >
                     <span role="img" aria-label="wave" className={`text-6xl mr-2`}>
                         👋
@@ -71,18 +66,16 @@ export default function Hero() {
                     <motion.button
                         onClick={() => (document.getElementById("project")?.scrollIntoView({ behavior: "smooth" }))}
                         className="relative px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 lg:px-10 lg:py-5 
-                   rounded bg-accentLight-500 font-bold text-lg sm:text-lg md:text-xl 
-                   dark:bg-secondaryDark-500 text-textDark-500 shadow-md"
-                        whileHover={{ scale: 1.2, rotate: [0, 10, -10, 0], transition: { duration: 0.6 } }}
+                                    rounded bg-accentLight-500 font-bold text-lg sm:text-lg md:text-xl 
+                                    dark:bg-secondaryDark-500 text-textDark-500 shadow-md"
+                        whileHover={{ scale: 1.1 }} // Simplified hover scale
                         whileTap={{ scale: 0.9 }}
                     >
                         <span className="absolute inset-0 bg-accentLight-500 dark:bg-secondaryDark-500  blur-lg opacity-50 rounded"></span>
                         <span className="relative">View Projects</span>
                     </motion.button>
                 </motion.div>
-
             </motion.div>
         </section>
-
     );
 }

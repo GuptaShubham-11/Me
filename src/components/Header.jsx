@@ -1,6 +1,21 @@
 import { ThemeToggle } from ".";
+import { useState } from "react";
 
 export default function Header() {
+    const [star, setStar] = useState(0);
+
+
+    const fetchStar = () => {
+        const stared = localStorage.getItem("stared") || "false";
+        if (stared === "true") {
+            setStar(star - 1);
+            localStorage.setItem("stared", "false");
+        } else {
+            setStar(star + 1);
+            localStorage.setItem("stared", "true");
+        }
+    }
+
     return (
         <>
             {/* Header */}
@@ -12,6 +27,14 @@ export default function Header() {
 
                 <div className="flex items-center space-x-2 sm:space-x-4">
                     <ThemeToggle />
+                    <button
+                        onClick={() => (fetchStar())}
+                        className="p-2 px-4 rounded outline-none cursor-pointer 
+        bg-primaryLight-500 text-textDark-500 
+        dark:bg-primaryDark-500 dark:text-textDark-500 font-bold"
+                    >
+                        {star} 🌟
+                    </button>
                 </div>
             </header>
 

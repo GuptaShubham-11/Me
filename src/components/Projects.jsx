@@ -1,34 +1,35 @@
 import { motion } from "framer-motion";
 import Portfolio from "../assets/portfolio.jpeg";
 import Todo from "../assets/Todo.jpeg";
+import Blogify from "../assets/Blogify.jpeg";
 
 const projects = [
-    {
-        id: 1,
-        title: "Todo",
-        description:
-            "A full-stack to-do application built with the MERN stack, featuring authentication, light/dark themes, and a responsive design.",
-        image: Todo,
-        github: "https://github.com/GuptaShubham-11/Todo",
-        live: "#",
-    },
     {
         id: 2,
         title: "Portfolio",
         description:
-            "A sleek and modern personal portfolio showcasing my skills, projects, and contact information.",
+            "A sleek and modern personal portfolio built with React, Tailwind CSS 4.0, and Framer Motion for animation.",
         image: Portfolio,
         github: "https://github.com/GuptaShubham-11/Me",
-        live: "#",
+        live: "https://gupta-shubham-11.vercel.app",
+    },
+    {
+        id: 2,
+        title: "Todo",
+        description:
+            "A full-stack todo app built with the MERN stack. A good UI and responsive design.",
+        image: Todo,
+        github: "https://github.com/GuptaShubham-11/Todo",
+        live: "https://todo-coral-psi.vercel.app",
     },
     {
         id: 3,
         title: "Blogify",
         description:
-            "An interactive blog app where users can share their thoughts.",
-        image: "path/to/mind-mapping-tool.jpg",
+            "An interactive blog app where users can share their thoughts built with React & Appwrite[Backend-as-service].",
+        image: Blogify,
         github: "https://github.com/GuptaShubham-11/Blogify",
-        live: "#",
+        live: "https://blogify-zeta-mauve.vercel.app",
     },
 ];
 

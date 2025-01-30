@@ -57,9 +57,8 @@ const CustomCursor = () => {
                 transform: "translate(-50%, -50%)",
             }}
             animate={{
-                scale: hovering ? 1.5 : 1,
-                rotate: hovering ? [0, 10, -10, 0] : 0,
-                transition: { type: "spring", stiffness: 300, damping: 15 },
+                scale: hovering ? 1.2 : 1, // Reduced scale for simplicity
+                transition: { type: "spring", stiffness: 200, damping: 20 },
             }}
         >
             {emoji}
