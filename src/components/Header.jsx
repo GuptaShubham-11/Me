@@ -1,9 +1,12 @@
 import { ThemeToggle } from ".";
 import { useState, useEffect } from "react";
-import confetti from "canvas-confetti";
+import Confetti from "react-confetti";
+import { useWindowSize } from "react-use"; // For responsive confetti effect
 
 export default function Header() {
     const [star, setStar] = useState(0);
+    const [showConfetti, setShowConfetti] = useState(false);
+    const { width, height } = useWindowSize(); // Get screen size
 
     // Initialize star count from localStorage
     useEffect(() => {
@@ -16,14 +19,9 @@ export default function Header() {
             const newStar = prev === 0 ? 1 : 0;
             localStorage.setItem("stared", newStar === 1 ? "true" : "false");
 
-            // 🎉 Trigger Confetti Effect when starred
             if (newStar === 1) {
-                confetti({
-                    particleCount: 100,
-                    spread: 70,
-                    angle: 90,
-                    origin: { y: 0.6 },
-                });
+                setShowConfetti(true);
+                setTimeout(() => setShowConfetti(false), 5000); // Stop confetti after 3s
             }
             return newStar;
         });
@@ -31,6 +29,9 @@ export default function Header() {
 
     return (
         <>
+            {/* 🎉 Confetti Effect (only when starred) */}
+            {showConfetti && <Confetti width={width} height={height} numberOfPieces={200} recycle={false} />}
+
             {/* Header */}
             <header className="fixed top-0 left-0 w-full z-50 p-4 flex justify-between items-center 
                 transition-all ease-in-out duration-300 bg-opacity-80 bg-transparent 
