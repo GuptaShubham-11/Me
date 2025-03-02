@@ -3,8 +3,6 @@ import {
     AiOutlineHome,
     AiOutlineMenu,
     AiOutlineClose,
-    AiOutlineGithub,
-    AiOutlineLinkedin,
     AiOutlineMail,
 } from "react-icons/ai";
 import { BiCodeBlock, BiBriefcase } from "react-icons/bi"; // Icons for Projects and Skills
@@ -26,8 +24,6 @@ export default function Sidebar() {
         { icon: <BiBriefcase />, label: "Projects", onClick: () => scrollToSection("project") },
         { icon: <BiCodeBlock />, label: "Skills", onClick: () => scrollToSection("skill") },
         { icon: <AiOutlineMail />, label: "Contact", onClick: () => scrollToSection("contact") },
-        { icon: <AiOutlineGithub />, label: "GitHub", path: "https://github.com/GuptaShubham-11" },
-        { icon: <AiOutlineLinkedin />, label: "LinkedIn", path: "https://www.linkedin.com/in/guptashubham11" },
     ];
 
     return (

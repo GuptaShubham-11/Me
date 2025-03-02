@@ -8,7 +8,8 @@ import Hero from "./Hero.jsx";
 import Skills from "./Skills.jsx";
 import Contact from "./Contact.jsx";
 import Sidebar from "./Sidebar.jsx";
-import BackgroundAnimation from "./BackgroundAnimation.jsx"
+import BackgroundAnimation from "./BackgroundAnimation.jsx";
+import WhyMe from "./WhyMe.jsx";
 
 
 export {
@@ -22,5 +23,6 @@ export {
     Skills,
     Contact,
     Sidebar,
-    BackgroundAnimation
+    BackgroundAnimation,
+    WhyMe
 };

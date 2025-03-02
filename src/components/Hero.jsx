@@ -7,6 +7,13 @@ export default function Hero() {
         <section id="home" className="relative w-full flex items-center justify-center px-6 md:px-16 pb-20 bg-backgroundLight-500 dark:bg-backgroundDark-500 overflow-hidden">
             <BackgroundAnimation />
 
+            {/* Gradient Blob Background */}
+            <motion.div
+                className="absolute inset-0"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+            />
+
             {/* Main Content */}
             <motion.div
                 initial={{ opacity: 0, y: 30 }}
@@ -14,66 +21,138 @@ export default function Hero() {
                 transition={{ duration: 0.8 }}
                 className="relative z-10 text-center flex flex-col items-center"
             >
-                {/* Profile Image */}
+                {/* Animated Profile Container */}
                 <motion.div
-                    className="relative w-44 h-44 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-accentLight dark:border-accentDark shadow-xl"
+                    className="relative w-44 h-44 md:w-56 md:h-56 rounded-full p-1"
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
-                    transition={{ duration: 0.8, delay: 0.3 }}
+                    transition={{
+                        duration: 0.8,
+                        delay: 0.3,
+                        type: "spring",
+                        stiffness: 100
+                    }}
                 >
-                    <motion.img
-                        src={profilePic}
-                        alt="Shubham Dev"
-                        className="w-full h-full object-cover"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 1.2, delay: 0.5 }}
+                    {/* Rotating Gradient Border */}
+                    <motion.div
+                        className="absolute inset-0 rounded-full bg-gradient-to-r from-primaryLight-500 to-accentLight-500 dark:from-secondaryDark-500 dark:to-accentDark-500"
+                        animate={{ rotate: 360 }}
+                        transition={{
+                            duration: 8,
+                            repeat: Infinity,
+                            ease: "linear"
+                        }}
                     />
+
+                    {/* Profile Image */}
+                    <motion.div
+                        className="relative rounded-full overflow-hidden border-4 border-backgroundLight-500 dark:border-backgroundDark-500 shadow-xl"
+                    >
+                        <motion.img
+                            src={profilePic}
+                            alt="Shubham Gupta"
+                            className="w-full h-full object-cover"
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{
+                                opacity: 1,
+                                scale: 1,
+                                transition: {
+                                    duration: 1.2,
+                                    delay: 0.5,
+                                    ease: "backOut"
+                                }
+                            }}
+                            whileHover={{ scale: 1.05 }}
+                        />
+                    </motion.div>
                 </motion.div>
 
-                {/* Hero Title */}
-                <motion.h1
-                    className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mt-6 text-textLight dark:text-textDark leading-tight"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.8, delay: 0.5 }}
+                {/* Animated Title Section */}
+                <div className="overflow-hidden">
+                    <motion.h1
+                        className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mt-10 text-textLight dark:text-textDark leading-tight"
+                        initial={{ y: "100%" }}
+                        animate={{ y: 0 }}
+                        transition={{
+                            duration: 0.8,
+                            delay: 0.5,
+                            ease: "circOut"
+                        }}
+                    >
+                        <span
+                            role="img"
+                            aria-label="wave"
+                            className="inline-block mr-2 animate-wave"
+                        >
+                            👋
+                        </span>
+                        Hi, I'm
+                        <span className="text-primaryLight-500 mx-2 bg-clip-text bg-gradient-to-r from-primaryLight-500 to-accentLight-500">
+                            Shubham
+                        </span>
+                        <span className="text-accentLight-500 dark:text-secondaryDark-500">
+                            Gupta
+                        </span>
+                    </motion.h1>
+                </div>
+
+                {/* Animated Text Section */}
+                <motion.div
+                    className="mt-4 max-w-2xl mx-auto overflow-hidden"
+                    initial={{ opacity: 0, x: -50 }}
+                    animate={{
+                        opacity: 1,
+                        x: 0,
+                        transition: {
+                            duration: 0.8,
+                            delay: 0.7
+                        }
+                    }}
                 >
-                    <span role="img" aria-label="wave" className={`text-6xl mr-2`}>
-                        👋
-                    </span>
+                    <p className="text-lg sm:text-xl lg:text-2xl">
+                        I am Web Develpoer with expirience in MERN Stack <br />
+                        <span className="text-accentLight-500 dark:text-secondaryDark-500 font-bold">
+                            Let's build something amazing.
+                        </span>
+                    </p>
+                </motion.div>
 
-                    Hello, I'm
-                    <span className="text-primaryLight-500"> Shubham </span>
-                    <span className="text-accentLight-500 dark:text-secondaryDark-500"> Dev </span>
-                </motion.h1>
-
-                <motion.p
-                    className="text-lg sm:text-xl lg:text-2xl mt-4 max-w-2xl mx-auto"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.8, delay: 0.7 }}
-                >
-                    Simple & Clean Code is my thing. <br />
-                    <span className="text-accentLight-500 dark:text-secondaryDark-500 font-bold">Let me prove it to you.</span>
-                </motion.p>
-
+                {/* Simple Button */}
                 <motion.div
                     className="mt-8 flex justify-center sm:mt-6 md:mt-4"
                     initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.8, delay: 0.9 }}
+                    animate={{
+                        opacity: 1,
+                        transition: {
+                            duration: 0.8,
+                            delay: 0.9
+                        }
+                    }}
                 >
                     <motion.button
-                        onClick={() => (document.getElementById("project")?.scrollIntoView({ behavior: "smooth" }))}
-                        className="relative px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 lg:px-10 lg:py-5 
-                                    rounded bg-accentLight-500 font-bold text-lg sm:text-lg md:text-xl 
-                                    dark:bg-secondaryDark-500 text-textDark-500 shadow-md"
-                        whileHover={{ scale: 1.1 }} // Simplified hover scale
-                        whileTap={{ scale: 0.9 }}
+                        onClick={() => document.getElementById("project")?.scrollIntoView({ behavior: "smooth" })}
+                        className="px-6 py-3 rounded-lg bg-primaryLight-500 text-white text-lg font-semibold shadow-md transition-all hover:bg-primaryLight-600 dark:bg-secondaryDark-500 dark:hover:bg-secondaryDark-600"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                     >
-                        <span className="absolute inset-0 bg-accentLight-500 dark:bg-secondaryDark-500  blur-lg opacity-50 rounded"></span>
-                        <span className="relative">View Projects</span>
+                        View My Work
                     </motion.button>
+                </motion.div>
+
+                {/* Animated Scroll Indicator */}
+                <motion.div
+                    className="absolute top-110 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+                    animate={{ y: [0, 20, 0] }}
+                    transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                    }}
+                >
+                    <div className="w-px h-8 bg-gradient-to-b from-textLight to-transparent dark:from-textDark" />
+                    <span className="text-sm text-textLight dark:text-textDark">
+                        Scroll Down
+                    </span>
                 </motion.div>
             </motion.div>
         </section>

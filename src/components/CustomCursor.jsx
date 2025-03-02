@@ -1,22 +1,15 @@
 import { useState, useEffect } from "react";
-import { motion, useMotionValue, useSpring } from "framer-motion";
 
-const CustomCursor = () => {
+const EmojiCursor = () => {
+    const [position, setPosition] = useState({ x: 0, y: 0 });
     const [hovering, setHovering] = useState(false);
+    const [rotation, setRotation] = useState(0);
     const [emoji, setEmoji] = useState("🖱️");
-
-    // Use MotionValue for smoother tracking
-    const cursorX = useMotionValue(0);
-    const cursorY = useMotionValue(0);
-
-    // Smooth spring animation
-    const smoothX = useSpring(cursorX, { stiffness: 150, damping: 20 });
-    const smoothY = useSpring(cursorY, { stiffness: 150, damping: 20 });
 
     useEffect(() => {
         const moveCursor = (e) => {
-            cursorX.set(e.clientX);
-            cursorY.set(e.clientY);
+            setPosition({ x: e.clientX, y: e.clientY });
+            setRotation(rotation + 10); // Rotate emoji slightly on move
         };
 
         const handleMouseEnter = (e) => {
@@ -45,25 +38,22 @@ const CustomCursor = () => {
                 el.removeEventListener("mouseleave", handleMouseLeave);
             });
         };
-    }, []);
+    }, [rotation]);
 
     return (
-        <motion.div
-            className="fixed flex items-center justify-center text-2xl md:text-3xl 
-                       pointer-events-none z-60"
+        <div
+            className="fixed text-3xl pointer-events-none z-90"
             style={{
-                x: smoothX,
-                y: smoothY,
-                transform: "translate(-50%, -50%)",
-            }}
-            animate={{
-                scale: hovering ? 1.2 : 1, // Reduced scale for simplicity
-                transition: { type: "spring", stiffness: 200, damping: 20 },
+                left: `${position.x}px`,
+                top: `${position.y}px`,
+                transform: `translate(-50%, -50%) rotate(${rotation}deg)`,
+                transition: "transform 0.1s ease-out",
+                scale: hovering ? 1.5 : 1,
             }}
         >
             {emoji}
-        </motion.div>
+        </div>
     );
 };
 
-export default CustomCursor;
+export default EmojiCursor;

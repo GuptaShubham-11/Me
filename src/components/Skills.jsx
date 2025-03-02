@@ -33,7 +33,7 @@ export default function Skills() {
                 {skills.map((skill, index) => (
                     <motion.div
                         key={index}
-                        className={`${skill.color} p-4 sm:p-6 rounded-xl shadow-md sm:shadow-lg text-textLight-500 dark:text-textDark-500 flex flex-col items-center justify-center transition-transform duration-200 hover:scale-105 sm:hover:scale-110 sm:hover:rotate-5 hover:bg-opacity-90`}
+                        className={`${skill.color} p-4 sm:p-6 rounded-xl shadow-md sm:shadow-lg text-textDark-500 flex flex-col items-center justify-center transition-transform duration-200 hover:scale-105 sm:hover:scale-110 sm:hover:rotate-5 hover:bg-opacity-90`}
                         initial={{ opacity: 0, y: 50, scale: 0.9 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         transition={{ duration: 1, delay: index * 0.1, ease: "easeInOut" }}

@@ -9,6 +9,7 @@ const Contact = () => {
         email: "",
         message: "",
     });
+    const [sending, setSending] = useState(false);
 
     const [isSent, setIsSent] = useState(false);
     const [error, setError] = useState("");
@@ -20,7 +21,7 @@ const Contact = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
+        setSending(true);
         emailjs
             .sendForm(
                 import.meta.env.VITE_SERVICE_ID,
@@ -30,6 +31,7 @@ const Contact = () => {
             )
             .then(
                 () => {
+                    setSending(false);
                     setIsSent(true);
                     setError("");
                     setFormData({ name: "", email: "", message: "" });
@@ -99,8 +101,9 @@ const Contact = () => {
                     <button
                         type="submit"
                         className="w-full py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600"
+                        disabled={sending}
                     >
-                        Just Hit! 🚀
+                        {sending ? "Sending..." : "Just Hit! 🚀"}
                     </button>
 
                     {isSent && <p className="text-green-500 mt-2">Message sent successfully! ✅</p>}
