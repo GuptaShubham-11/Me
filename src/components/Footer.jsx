@@ -1,17 +1,18 @@
-import { FaGithub, FaLinkedin, FaTwitter, } from 'react-icons/fa';
-import { SiLeetcode } from 'react-icons/si';
+import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { SiLeetcode } from "react-icons/si";
 
 export default function Footer() {
     return (
-        <footer className="p-8 bg-backgroundLight-500 dark:bg-backgroundDark-500 text-textLight-500 dark:text-textDark-500 transition-all duration-300 ease-in-out">
-            <div className="container mx-auto flex flex-col items-center justify-between md:flex-row text-center md:text-left">
+        <footer className="p-6 md:p-8 bg-backgroundLight-500 dark:bg-backgroundDark-500 text-textLight-500 dark:text-textDark-500 transition-all duration-300 ease-in-out">
+            <div className="container mx-auto flex flex-col md:flex-row items-center justify-between text-center md:text-left space-y-4 md:space-y-0">
 
-                <div className="text-center text-lg font-medium text-textLight-500 dark:text-textDark-500">
+                {/* Footer Text */}
+                <div className="text-lg font-medium text-textLight-500 dark:text-textDark-500">
                     <p>Designed with ❤️ by Shubham Dev</p>
                 </div>
 
                 {/* Social Media Icons */}
-                <div className="flex space-x-6 mb-6 md:mb-0">
+                <div className="flex space-x-6">
                     <a
                         href="https://github.com/GuptaShubham-11"
                         target="_blank"

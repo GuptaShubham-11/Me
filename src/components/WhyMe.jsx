@@ -41,7 +41,7 @@ const benefits = [
 
 export default function Benefits() {
     return (
-        <section id="benefits" className="py-16 px-6 md:px-16 bg-backgroundLight-500 dark:bg-backgroundDark-500">
+        <section id="benefits" className="py-16 px-6 sm:px-10 md:px-16 bg-backgroundLight-500 dark:bg-backgroundDark-500">
             <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-textLight-500 dark:text-textDark-500">
                 Why Work With Me?
             </h2>
@@ -49,9 +49,12 @@ export default function Benefits() {
                 {benefits.map((benefit) => (
                     <motion.div
                         key={benefit.id}
-                        className={`relative p-6 rounded-2xl shadow-lg overflow-hidden bg-gradient-to-r ${benefit.gradient} text-white flex flex-col items-center text-center`}
-                        whileHover={{ scale: 1.05 }}
-                        transition={{ type: "spring", stiffness: 200 }}
+                        className={`relative p-6 rounded-2xl shadow-lg overflow-hidden bg-gradient-to-r ${benefit.gradient} text-white flex flex-col items-center text-center backdrop-blur-md bg-opacity-90`}
+                        whileHover={{ scale: 1.05, rotate: 2, boxShadow: "0px 4px 20px rgba(0,0,0,0.2)" }}
+                        initial={{ opacity: 0, y: 50 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ type: "spring", stiffness: 200, delay: benefit.id * 0.1 }}
+                        aria-label={benefit.title}
                     >
                         <div className="mb-4">{benefit.icon}</div>
                         <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>

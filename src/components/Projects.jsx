@@ -39,11 +39,13 @@ export default function Projects() {
             <h2 className="text-4xl font-bold text-center mb-12 text-textLight dark:text-textDark">
                 Projects
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            {/* Project Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 {projects.map((project) => (
                     <motion.div
                         key={project.id}
-                        className="relative bg-white dark:bg-gray-900 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-all duration-300"
+                        className="relative bg-white dark:bg-gray-900 rounded-xl shadow-lg overflow-hidden transform transition-all duration-300"
                         whileHover={{ scale: 1.05 }}
                     >
                         {/* Project Image */}
@@ -61,28 +63,30 @@ export default function Projects() {
                             <h3 className="text-2xl font-semibold text-textLight dark:text-textDark mb-3">
                                 {project.title}
                             </h3>
-                            <p className="text-base text-gray-600 dark:text-gray-300 mb-6">
+                            <p className="text-base text-secondaryLight dark:text-secondaryDark mb-6">
                                 {project.description}
                             </p>
 
                             {/* Buttons */}
-                            <div className="flex justify-between items-center">
-                                <a
+                            <div className="flex gap-4">
+                                <motion.a
                                     href={project.github}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="px-5 py-2 rounded-lg bg-green-500 text-white font-medium shadow-md transition-all"
+                                    className="px-5 py-2 rounded-lg bg-green-500 text-white font-medium shadow-md transition-all hover:brightness-110"
+                                    whileHover={{ scale: 1.1 }}
                                 >
                                     Code
-                                </a>
-                                <a
+                                </motion.a>
+                                <motion.a
                                     href={project.live}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="px-5 py-2 rounded-lg bg-blue-500 text-white font-medium shadow-md transition-all"
+                                    className="px-5 py-2 rounded-lg bg-blue-500 text-white font-medium shadow-md transition-all hover:brightness-110"
+                                    whileHover={{ scale: 1.1 }}
                                 >
                                     Live
-                                </a>
+                                </motion.a>
                             </div>
                         </div>
                     </motion.div>
