@@ -8,8 +8,8 @@ export default function Header() {
                 backdrop-blur-md text-textDark-500 dark:text-textDark-500">
 
                 <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold">
-                    <span className="text-primaryLight-500">Shubham</span>
-                    <span className="text-accentLight-500 dark:text-secondaryDark-500"> Dev</span>
+                    <span className="text-primaryLight-500 brightness-125">Shubham</span>
+                    <span className="text-accentLight-500 dark:text-secondaryDark-500 brightness-125"> Dev</span>
                 </h1>
 
                 <div className="space-x-2 sm:space-x-4">

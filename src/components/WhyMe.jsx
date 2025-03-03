@@ -21,7 +21,7 @@ const benefits = [
         title: "Modern UI/UX",
         description: "Elegant and user-friendly interfaces tailored to create a great user experience.",
         icon: <FaPalette className="text-4xl text-white" />,
-        gradient: "from-teal-400 to-cyan-400"
+        gradient: "from-teal-400 to-teal-700"
     },
     {
         id: 4,

@@ -10,10 +10,9 @@ const Contact = () => {
         message: "",
     });
     const [sending, setSending] = useState(false);
-
     const [isSent, setIsSent] = useState(false);
     const [error, setError] = useState("");
-    const { width, height } = useWindowSize(); // Get screen size for confetti
+    const { width, height } = useWindowSize();
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -22,6 +21,7 @@ const Contact = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         setSending(true);
+
         emailjs
             .sendForm(
                 import.meta.env.VITE_SERVICE_ID,
@@ -36,12 +36,12 @@ const Contact = () => {
                     setError("");
                     setFormData({ name: "", email: "", message: "" });
 
-                    // Remove confetti effect after 5 seconds
                     setTimeout(() => setIsSent(false), 5000);
                 },
                 (err) => {
                     setError("Failed to send. Try again.");
                     console.error(err);
+                    setSending(false);
                 }
             );
     };
@@ -50,64 +50,74 @@ const Contact = () => {
         <div id="contact" className="flex justify-center items-center min-h-screen p-6 bg-transparent relative">
             {isSent && <Confetti width={width} height={height} numberOfPieces={200} />}
 
-            <div className="w-full max-w-md bg-white dark:bg-gray-800 p-6 rounded-lg shadow-xl">
-                <h2 className="text-2xl font-semibold text-center text-gray-800 dark:text-white mb-6">
-                    Contact Me
+            <div className="w-full max-w-lg bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+                <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-6">
+                    Contact Me 📬
                 </h2>
 
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-5">
                     <div>
-                        <label htmlFor="name" className="block text-gray-700 dark:text-white">Full Name</label>
+                        <label htmlFor="name" className="block text-gray-700 dark:text-white font-medium">
+                            Full Name
+                        </label>
                         <input
                             type="text"
                             id="name"
                             name="name"
-                            placeholder="Your amazing name"
+                            placeholder="Enter your name"
                             value={formData.name}
                             onChange={handleChange}
-                            className="w-full px-4 py-2 mt-1 border rounded-md dark:bg-gray-700 dark:text-white"
+                            className="w-full px-5 py-3 mt-1 border rounded-lg dark:bg-gray-700 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none"
                             required
                         />
                     </div>
 
                     <div>
-                        <label htmlFor="email" className="block text-gray-700 dark:text-white">Email Address</label>
+                        <label htmlFor="email" className="block text-gray-700 dark:text-white font-medium">
+                            Email Address
+                        </label>
                         <input
                             type="email"
                             id="email"
                             name="email"
-                            placeholder="Your email address"
+                            placeholder="Enter your email"
                             value={formData.email}
                             onChange={handleChange}
-                            className="w-full px-4 py-2 mt-1 border rounded-md dark:bg-gray-700 dark:text-white"
+                            className="w-full px-5 py-3 mt-1 border rounded-lg dark:bg-gray-700 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none"
                             required
                         />
                     </div>
 
                     <div>
-                        <label htmlFor="message" className="block text-gray-700 dark:text-white">Message</label>
+                        <label htmlFor="message" className="block text-gray-700 dark:text-white font-medium">
+                            Message
+                        </label>
                         <textarea
                             id="message"
                             name="message"
-                            placeholder="Don't be hesitate, let's chat 😊!"
+                            placeholder="Say something nice! 😊"
                             value={formData.message}
                             onChange={handleChange}
-                            className="w-full px-4 py-2 mt-1 border rounded-md dark:bg-gray-700 dark:text-white"
-                            rows="4"
+                            className="w-full px-5 py-3 mt-1 border rounded-lg dark:bg-gray-700 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none"
+                            rows="5"
                             required
                         />
                     </div>
 
                     <button
                         type="submit"
-                        className="w-full py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600"
+                        className="w-full py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition-all duration-200 ease-in-out flex items-center justify-center"
                         disabled={sending}
                     >
-                        {sending ? "Sending..." : "Just Hit! 🚀"}
+                        {sending ? (
+                            <span className="animate-spin mr-2">⏳</span>
+                        ) : (
+                            "Send Message 🚀"
+                        )}
                     </button>
 
-                    {isSent && <p className="text-green-500 mt-2">Message sent successfully! ✅</p>}
-                    {error && <p className="text-red-500 mt-2">{error}</p>}
+                    {isSent && <p className="text-green-500 text-center mt-3">Message sent successfully! ✅</p>}
+                    {error && <p className="text-red-500 text-center mt-3">{error}</p>}
                 </form>
             </div>
         </div>

@@ -35,7 +35,7 @@ const projects = [
 
 export default function Projects() {
     return (
-        <section id="project" className="py-16 px-6 md:px-16 bg-backgroundLight-500 dark:bg-backgroundDark-500">
+        <section id="project" className="py-16 px-6 md:px-16">
             <h2 className="text-4xl font-bold text-center mb-12 text-textLight dark:text-textDark">
                 Projects
             </h2>
@@ -71,7 +71,7 @@ export default function Projects() {
                                     href={project.github}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="px-5 py-2 rounded-lg bg-primaryLight-500 text-white font-medium shadow-md hover:bg-primaryDark-500 transition-all"
+                                    className="px-5 py-2 rounded-lg bg-green-500 text-white font-medium shadow-md transition-all"
                                 >
                                     Code
                                 </a>
@@ -79,7 +79,7 @@ export default function Projects() {
                                     href={project.live}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="px-5 py-2 rounded-lg bg-accentLight-500 dark:bg-secondaryDark-500 text-white font-medium shadow-md hover:bg-accentDark-500 transition-all"
+                                    className="px-5 py-2 rounded-lg bg-blue-500 text-white font-medium shadow-md transition-all"
                                 >
                                     Live
                                 </a>

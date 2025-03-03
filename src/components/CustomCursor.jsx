@@ -3,13 +3,11 @@ import { useState, useEffect } from "react";
 const EmojiCursor = () => {
     const [position, setPosition] = useState({ x: 0, y: 0 });
     const [hovering, setHovering] = useState(false);
-    const [rotation, setRotation] = useState(0);
     const [emoji, setEmoji] = useState("🖱️");
 
     useEffect(() => {
         const moveCursor = (e) => {
             setPosition({ x: e.clientX, y: e.clientY });
-            setRotation(rotation + 10); // Rotate emoji slightly on move
         };
 
         const handleMouseEnter = (e) => {
@@ -38,7 +36,7 @@ const EmojiCursor = () => {
                 el.removeEventListener("mouseleave", handleMouseLeave);
             });
         };
-    }, [rotation]);
+    }, []);
 
     return (
         <div
@@ -46,7 +44,7 @@ const EmojiCursor = () => {
             style={{
                 left: `${position.x}px`,
                 top: `${position.y}px`,
-                transform: `translate(-50%, -50%) rotate(${rotation}deg)`,
+                transform: `translate(-50%, -50%)`,
                 transition: "transform 0.1s ease-out",
                 scale: hovering ? 1.5 : 1,
             }}

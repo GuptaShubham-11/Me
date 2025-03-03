@@ -47,27 +47,14 @@ export default function Sidebar() {
                     <ul className="space-y-1">
                         {menuItems.map((item, index) => (
                             <li key={index}>
-                                {/* External Links */}
-                                {item.path ? (
-                                    <a
-                                        href={item.path}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="group flex items-center gap-3 px-2 py-2 hover:bg-[#FEF3C7] dark:hover:bg-[#F59E0B] hover:rounded transition-colors duration-300 w-full"
-                                    >
-                                        <span className="text-lg">{item.icon}</span>
-                                        <span className="text-sm">{item.label}</span>
-                                    </a>
-                                ) : (
-                                    /* Internal Scroll */
-                                    <button
-                                        onClick={item.onClick}
-                                        className="group flex items-center gap-3 px-2 py-2 hover:bg-[#FEF3C7] dark:hover:bg-[#F59E0B] hover:rounded transition-colors duration-300 w-full text-left"
-                                    >
-                                        <span className="text-lg">{item.icon}</span>
-                                        <span className="text-sm">{item.label}</span>
-                                    </button>
-                                )}
+                                <button
+                                    onClick={item.onClick}
+                                    className="group flex items-center gap-3 px-2 py-2 hover:bg-[#FEF3C7] dark:hover:bg-gray-500 hover:rounded transition-colors duration-300 w-full text-left"
+                                >
+                                    <span className="text-lg">{item.icon}</span>
+                                    <span className="text-sm">{item.label}</span>
+                                </button>
+
                             </li>
                         ))}
                     </ul>

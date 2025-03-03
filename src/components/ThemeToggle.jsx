@@ -21,7 +21,7 @@ const ThemeToggle = () => {
             onClick={handleToggle}
             className={`p-2 px-4 rounded outline-none cursor-pointer 
         bg-primaryLight-500 text-textDark-500 
-        dark:bg-primaryDark-500 dark:text-textDark-500`}
+        dark:bg-primaryDark-500 dark:text-textDark-500 brightness-125`}
         >
             {theme === "dark" ? "Dark" : " Light"}
         </button>

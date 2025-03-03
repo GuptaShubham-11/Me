@@ -4,26 +4,30 @@
 
 /* Define Light Theme Colors using custom properties */
 @theme {
-  --color-primaryLight-500: oklch(0.65 0.15 240);
-  /* Yinmn Blue */
-  --color-accentLight-500: oklch(0.75 0.18 30);
-  /* Soft Coral */
-  --color-backgroundLight-500: oklch(0.95 0.01 90);
-  /* Platinum */
+  --color-primaryLight-500: oklch(0.60 0.14 230);
+  /* Soft Blue */
+  --color-accentLight-500: oklch(0.70 0.16 20);
+  /* Warm Peach */
+  --color-secondaryLight-500: oklch(0.80 0.10 140);
+  /* Muted Teal */
+  --color-backgroundLight-500: oklch(0.97 0.01 95);
+  /* Slightly Brighter Off-White */
   --color-textLight-500: oklch(0.15 0.01 0);
-  /* Dark Gray */
+  /* Darker Charcoal for Contrast */
 
-  --color-primaryDark-500: oklch(0.55 0.10 250);
-  /* Silver Lake Blue */
-  --color-secondaryDark-500: oklch(0.80 0.12 150);
-  /* Mint Green */
-  --color-accentDark-500: oklch(0.85 0.20 80);
-  /* Golden Yellow */
-  --color-backgroundDark-500: oklch(0.10 0.02 240);
-  /* Oxford Blue */
-  --color-textDark-500: oklch(0.95 0.01 100);
-  /* Off-White */
+  --color-primaryDark-500: oklch(0.50 0.12 235);
+  /* Muted Indigo Blue */
+  --color-secondaryDark-500: oklch(0.75 0.12 160);
+  /* Muted Cyan */
+  --color-accentDark-500: oklch(0.82 0.15 60);
+  /* Slightly Brighter Soft Gold */
+  --color-backgroundDark-500: oklch(0.10 0.02 230);
+  /* Deeper Navy Blue */
+  --color-textDark-500: oklch(0.92 0.02 100);
+  /* Brighter Warm Off-White */
 }
+
+
 
 html.light,
 body.light {
