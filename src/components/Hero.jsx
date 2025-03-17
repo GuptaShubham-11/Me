@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import profilePic from "../assets/ShubhamGupta.jpeg";
 import BackgroundAnimation from "./BackgroundAnimation.jsx";
+import HiEmoji from "./HiEmoji.jsx";
 
 export default function Hero() {
     return (
@@ -37,14 +38,17 @@ export default function Hero() {
                 </div>
 
                 {/* Animated Title Section */}
-                <div className="mt-16 text-center md:text-left max-w-2xl">
-                    <h1 className="text-4xl md:text-6xl font-bold text-primaryLight dark:text-primaryDark leading-tight">
-                        Hey, I'm <span className="text-accentLight dark:text-accentDark">Shubham</span>
+                <div className="mt-12 sm:mt-16 text-center sm:text-left max-w-2xl mx-auto px-4">
+                    <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-primaryLight dark:text-primaryDark leading-snug flex flex-wrap items-center justify-center sm:justify-start gap-3">
+                        <HiEmoji />
+                        <span>Hey, I'm</span>
+                        <span className="text-accentLight dark:text-accentDark">Shubham</span>
                     </h1>
-                    <p className="text-lg md:text-xl text-secondaryLight dark:text-secondaryDark mt-4">
+                    <p className="text-base sm:text-lg md:text-xl text-secondaryLight dark:text-secondaryDark mt-3 sm:mt-4">
                         A Web Developer crafting modern & interactive web experiences.
                     </p>
                 </div>
+
 
                 {/* Button Section */}
                 <motion.div
