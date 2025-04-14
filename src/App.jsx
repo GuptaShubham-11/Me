@@ -16,7 +16,7 @@ function App() {
   }, [theme]);
 
   return (
-    <Router>  {/* Wrap the components in BrowserRouter */}
+    <Router>
       <Layout>
         <Main />
       </Layout>

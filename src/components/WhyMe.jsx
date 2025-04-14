@@ -4,47 +4,46 @@ import { FaCode, FaRocket, FaPalette, FaLightbulb, FaUsers } from "react-icons/f
 const benefits = [
     {
         id: 1,
-        title: "Clean & Optimized Code",
-        description: "I write efficient, scalable, and maintainable code that ensures high performance.",
-        icon: <FaCode className="text-4xl text-white" />,
-        gradient: "from-[#2563eb] to-[#1e40af]" // Deep Blue
+        title: "Clean Code",
+        description: "Efficient, scalable, and maintainable code.",
+        icon: <FaCode />,
+        gradient: "from-[#2563eb] to-[#1e40af]",
     },
     {
         id: 2,
-        title: "Fast & Responsive Designs",
-        description: "Websites that load quickly and work seamlessly across all devices.",
-        icon: <FaRocket className="text-4xl text-white" />,
-        gradient: "from-[#7c3aed] to-[#6d28d9]" // Dark Violet
+        title: "Fast & Responsive",
+        description: "Seamless experience across all devices.",
+        icon: <FaRocket />,
+        gradient: "from-[#7c3aed] to-[#6d28d9]",
     },
     {
         id: 3,
         title: "Modern UI/UX",
-        description: "Elegant and user-friendly interfaces tailored to create a great user experience.",
-        icon: <FaPalette className="text-4xl text-white" />,
-        gradient: "from-[#059669] to-[#047857]" // Deep Teal
+        description: "Elegant and intuitive user experiences.",
+        icon: <FaPalette />,
+        gradient: "from-[#059669] to-[#047857]",
     },
     {
         id: 4,
-        title: "Creative & Unique Solutions",
-        description: "Innovative ideas and solutions that make your project stand out.",
-        icon: <FaLightbulb className="text-4xl text-white" />,
-        gradient: "from-[#ea580c] to-[#c2410c]" // Dark Orange
+        title: "Unique Ideas",
+        description: "Creative, standout project solutions.",
+        icon: <FaLightbulb />,
+        gradient: "from-[#ea580c] to-[#c2410c]",
     },
     {
         id: 5,
-        title: "Collaborative & Transparent",
-        description: "Strong communication and teamwork to bring your vision to life.",
-        icon: <FaUsers className="text-4xl text-white" />,
-        gradient: "from-[#334155] to-[#1e293b]" // Dark Navy Gray
-    }
+        title: "Collaborative",
+        description: "Transparent teamwork and communication.",
+        icon: <FaUsers />,
+        gradient: "from-[#334155] to-[#1e293b]",
+    },
 ];
 
-
-export default function Benefits() {
+export default function BenefitsStepper() {
     return (
-        <section id="benefits" className="py-16 px-6 sm:px-10 md:px-16 bg-backgroundLight-500 dark:bg-backgroundDark-500">
+        <section className="py-16 px-6 overflow-x-auto">
             <motion.h2
-                className="text-3xl sm:text-4xl font-bold text-center mb-12 text-textLight-500 dark:text-textDark-500"
+                className="text-3xl font-bold text-center mb-16"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
@@ -52,49 +51,74 @@ export default function Benefits() {
                 Why Work With Me?
             </motion.h2>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                {benefits.map((benefit) => (
+            {/* Desktop Horizontal Stepper */}
+            <div className="hidden sm:flex gap-12 items-center justify-start w-[1200px] mx-auto relative">
+                {benefits.map((benefit, index) => (
                     <motion.div
                         key={benefit.id}
-                        className="relative group h-full"
+                        className="flex flex-col items-center relative group"
                         initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{
-                            type: "spring",
-                            stiffness: 200,
-                            delay: benefit.id * 0.1
-                        }}
+                        transition={{ delay: index * 0.1 }}
                     >
-                        {/* Animated overlay */}
-                        <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
+                        <motion.div
+                            className={`w-24 h-24 rounded-full bg-gradient-to-r ${benefit.gradient} flex items-center justify-center text-4xl text-white shadow-lg border-4 border-white/20`}
+                            whileHover={{ scale: 1.15 }}
+                        >
+                            {benefit.icon}
+                        </motion.div>
 
-                        <div className={`relative p-8 rounded-2xl overflow-hidden bg-gradient-to-r ${benefit.gradient} text-white flex flex-col items-center text-center 
-                            backdrop-blur-lg border border-white/10 shadow-2xl h-full
-                            transition-transform duration-300 group-hover:-translate-y-2`}>
+                        <motion.h3 className="text-lg font-semibold mt-4 text-center">
+                            {benefit.title}
+                        </motion.h3>
 
-                            {/* Animated icon container */}
+                        <motion.p className="text-sm opacity-70 text-center max-w-[180px] mt-2">
+                            {benefit.description}
+                        </motion.p>
+
+                        {index !== benefits.length - 1 && (
                             <motion.div
-                                className="mb-6 p-4 rounded-full bg-white/10 backdrop-blur-sm"
-                                whileHover={{ scale: 1.1 }}
-                            >
-                                {benefit.icon}
-                            </motion.div>
+                                className="absolute top-12 left-[115px] h-1 w-24 bg-gradient-to-r from-slate-400 to-slate-600 rounded-full"
+                                animate={{
+                                    opacity: [0.3, 0.9, 0.3],
+                                }}
+                                transition={{
+                                    repeat: Infinity,
+                                    duration: 2,
+                                }}
+                            />
+                        )}
+                    </motion.div>
+                ))}
+            </div>
 
-                            <h3 className="text-xl font-semibold mb-3">{benefit.title}</h3>
-                            <p className="text-base opacity-90 leading-relaxed">{benefit.description}</p>
+            {/* Mobile Vertical Timeline */}
+            <div className="flex flex-col sm:hidden gap-12 items-start relative mt-12">
+                {benefits.map((benefit, index) => (
+                    <motion.div
+                        key={benefit.id}
+                        className="flex items-center gap-4 relative group"
+                        initial={{ opacity: 0, y: 50 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: index * 0.1 }}
+                    >
+                        {/* Connector Line */}
+                        {index !== benefits.length - 1 && (
+                            <div className="absolute top-14 left-6 h-12 w-1 bg-gradient-to-b from-slate-400 to-slate-600 rounded-full" />
+                        )}
 
-                            {/* Subtle gradient border animation */}
-                            <div className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none">
-                                <motion.div
-                                    className="absolute w-[200%] h-[200%] bg-gradient-to-r from-transparent via-white/10 to-transparent"
-                                    animate={{ x: ["-100%", "100%"] }}
-                                    transition={{
-                                        duration: 6,
-                                        repeat: Infinity,
-                                        ease: "linear"
-                                    }}
-                                />
-                            </div>
+                        {/* Icon */}
+                        <motion.div
+                            className={`w-16 h-16 rounded-full bg-gradient-to-r ${benefit.gradient} flex items-center justify-center text-2xl text-white shadow-lg border-4 border-white/20`}
+                            whileHover={{ scale: 1.1 }}
+                        >
+                            {benefit.icon}
+                        </motion.div>
+
+                        {/* Text */}
+                        <div>
+                            <h3 className="text-lg font-semibold">{benefit.title}</h3>
+                            <p className="text-sm opacity-70 max-w-xs">{benefit.description}</p>
                         </div>
                     </motion.div>
                 ))}
