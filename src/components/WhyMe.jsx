@@ -60,19 +60,30 @@ export default function BenefitsStepper() {
                         initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: index * 0.1 }}
+                        aria-label={benefit.title}
+                        aria-describedby={`benefit-description-${benefit.id}`}
                     >
                         <motion.div
-                            className={`w-24 h-24 rounded-full bg-gradient-to-r ${benefit.gradient} flex items-center justify-center text-4xl text-white shadow-lg border-4 border-white/20`}
-                            whileHover={{ scale: 1.15 }}
+                            className={`w-24 h-24 rounded-full bg-gradient-to-r ${benefit.gradient} flex items-center justify-center text-4xl text-white shadow-lg border-4 border-white/20 dark:bg-gradient-to-r dark:${benefit.gradient} focus:ring-4 focus:ring-${benefit.gradient.split(' ')[0]} focus:ring-opacity-50`}
+                            whileHover={{ scale: 1.2 }}
                         >
                             {benefit.icon}
                         </motion.div>
 
-                        <motion.h3 className="text-lg font-semibold mt-4 text-center">
+                        <motion.h3
+                            id={`benefit-description-${benefit.id}`}
+                            className="text-lg font-semibold mt-4 text-center"
+                            style={{ textShadow: "0 0 5px rgba(255,255,255,0.8)" }}
+                        >
                             {benefit.title}
                         </motion.h3>
 
-                        <motion.p className="text-sm opacity-70 text-center max-w-[180px] mt-2">
+                        <motion.p
+                            className="text-sm opacity-70 text-center max-w-[180px] mt-2"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.3 }}
+                        >
                             {benefit.description}
                         </motion.p>
 
@@ -81,6 +92,7 @@ export default function BenefitsStepper() {
                                 className="absolute top-12 left-[115px] h-1 w-24 bg-gradient-to-r from-slate-400 to-slate-600 rounded-full"
                                 animate={{
                                     opacity: [0.3, 0.9, 0.3],
+                                    scaleY: [1, 1.2, 1],
                                 }}
                                 transition={{
                                     repeat: Infinity,
@@ -104,12 +116,12 @@ export default function BenefitsStepper() {
                     >
                         {/* Connector Line */}
                         {index !== benefits.length - 1 && (
-                            <div className="absolute top-14 left-6 h-12 w-1 bg-gradient-to-b from-slate-400 to-slate-600 rounded-full" />
+                            <div className="absolute top-14 left-6 h-12 z-[-30] w-1 bg-gradient-to-b from-slate-400 to-slate-600 rounded-full" />
                         )}
 
                         {/* Icon */}
                         <motion.div
-                            className={`w-16 h-16 rounded-full bg-gradient-to-r ${benefit.gradient} flex items-center justify-center text-2xl text-white shadow-lg border-4 border-white/20`}
+                            className={`w-16 h-16 rounded-full bg-gradient-to-r ${benefit.gradient} flex items-center justify-center text-2xl text-white shadow-lg border-4 border-white/20 sm:w-24 sm:h-24 sm:text-4xl`}
                             whileHover={{ scale: 1.1 }}
                         >
                             {benefit.icon}

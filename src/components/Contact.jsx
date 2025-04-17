@@ -47,17 +47,20 @@ const Contact = () => {
     };
 
     return (
-        <div id="contact" className="flex justify-center items-center min-h-screen p-6 bg-transparent relative">
+        <div
+            id="contact"
+            className="flex justify-center items-center min-h-screen p-6 bg-transparent relative"
+        >
             {isSent && <Confetti width={width} height={height} numberOfPieces={200} />}
 
-            <div className="w-full max-w-lg bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
-                <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-6">
+            <div className="w-full max-w-lg bg-backgroundLight-500 text-textLight-500 dark:bg-gray-900 dark:text-textDark-500 p-8 rounded-xl shadow-lg">
+                <h2 className="text-3xl font-bold text-center mb-6">
                     Contact Me 📬
                 </h2>
 
                 <form onSubmit={handleSubmit} className="space-y-5">
                     <div>
-                        <label htmlFor="name" className="block text-gray-700 dark:text-white font-medium">
+                        <label htmlFor="name" className="block font-medium">
                             Full Name
                         </label>
                         <input
@@ -67,13 +70,13 @@ const Contact = () => {
                             placeholder="Enter your name"
                             value={formData.name}
                             onChange={handleChange}
-                            className="w-full px-5 py-3 mt-1 border rounded-lg dark:bg-gray-700 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none"
+                            className="w-full px-5 py-3 mt-1 border rounded-lg bg-backgroundLight-500 text-textLight-500 dark:bg-transparent dark:text-textDark-500 focus:ring-2 focus:ring-primaryLight-500 dark:focus:ring-primaryDark-500 outline-none"
                             required
                         />
                     </div>
 
                     <div>
-                        <label htmlFor="email" className="block text-gray-700 dark:text-white font-medium">
+                        <label htmlFor="email" className="block font-medium">
                             Email Address
                         </label>
                         <input
@@ -83,13 +86,13 @@ const Contact = () => {
                             placeholder="Enter your email"
                             value={formData.email}
                             onChange={handleChange}
-                            className="w-full px-5 py-3 mt-1 border rounded-lg dark:bg-gray-700 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none"
+                            className="w-full px-5 py-3 mt-1 border rounded-lg bg-backgroundLight-500 text-textLight-500 dark:bg-transparent dark:text-textDark-500 focus:ring-2 focus:ring-primaryLight-500 dark:focus:ring-primaryDark-500 outline-none"
                             required
                         />
                     </div>
 
                     <div>
-                        <label htmlFor="message" className="block text-gray-700 dark:text-white font-medium">
+                        <label htmlFor="message" className="block font-medium">
                             Message
                         </label>
                         <textarea
@@ -98,7 +101,7 @@ const Contact = () => {
                             placeholder="Say something nice! 😊"
                             value={formData.message}
                             onChange={handleChange}
-                            className="w-full px-5 py-3 mt-1 border rounded-lg dark:bg-gray-700 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none"
+                            className="w-full px-5 py-3 mt-1 border rounded-lg bg-backgroundLight-500 text-textLight-500 dark:bg-transparent dark:text-textDark-500 focus:ring-2 focus:ring-primaryLight-500 dark:focus:ring-primaryDark-500 outline-none"
                             rows="5"
                             required
                         />
@@ -106,7 +109,7 @@ const Contact = () => {
 
                     <button
                         type="submit"
-                        className="w-full py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition-all duration-200 ease-in-out flex items-center justify-center"
+                        className="w-full py-3 bg-primaryLight-500 text-white font-semibold rounded-lg shadow-md hover:brightness-110 transition-all duration-200 ease-in-out flex items-center justify-center"
                         disabled={sending}
                     >
                         {sending ? (
@@ -116,8 +119,14 @@ const Contact = () => {
                         )}
                     </button>
 
-                    {isSent && <p className="text-green-500 text-center mt-3">Message sent successfully! ✅</p>}
-                    {error && <p className="text-red-500 text-center mt-3">{error}</p>}
+                    {isSent && (
+                        <p className="text-green-500 text-center mt-3">
+                            Message sent successfully! ✅
+                        </p>
+                    )}
+                    {error && (
+                        <p className="text-red-500 text-center mt-3">{error}</p>
+                    )}
                 </form>
             </div>
         </div>

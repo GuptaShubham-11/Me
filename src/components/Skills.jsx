@@ -59,7 +59,7 @@ const categories = [
 
 export default function Skills() {
     return (
-        <section id="skills" className="py-16 px-6">
+        <section id="skills" className="py-16 px-6 bg-light dark:bg-dark">
             <motion.h2
                 className="text-4xl font-bold text-center mb-12 text-textLight dark:text-textDark"
                 initial={{ opacity: 0, y: -50 }}

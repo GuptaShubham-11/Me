@@ -5,7 +5,6 @@ import Utube from "../assets/HomeDark.jpeg";
 import Todo from "../assets/Todo.jpeg";
 import Blogify from "../assets/Blogify.jpeg";
 import ShopEasy from "../assets/ShopEasy.jpeg";
-import { DefaultContext } from "react-icons";
 
 const projects = [
     {
@@ -49,7 +48,6 @@ const projects = [
             { name: "Context Api", icon: <FaCouch className="text-green-400" /> },
             { name: "Fake Store Api", icon: <FaDatabase className="text-gray-400" /> }
         ],
-
     },
     {
         id: 4,
@@ -83,11 +81,11 @@ export default function Projects() {
                         transition={{ duration: 0.5, delay: index * 0.15 }}
                         viewport={{ once: true, amount: 0.4 }}
                     >
-                        <div className="h-48 overflow-hidden">
+                        <div className="h-48 overflow-hidden relative">
                             <img
                                 src={project.image}
                                 alt={project.title}
-                                className="w-full h-full object-cover transition duration-500 hover:scale-110"
+                                className="w-full h-full object-cover transition duration-500 transform hover:scale-110"
                             />
                         </div>
 
@@ -137,6 +135,5 @@ export default function Projects() {
                 ))}
             </div>
         </section>
-
     );
 }

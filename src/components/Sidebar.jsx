@@ -30,7 +30,7 @@ export default function Sidebar() {
         <div className="z-50">
             {/* Toggle Button */}
             <button
-                className="fixed top-20 right-6 flex items-center justify-center w-10 h-10 bg-primaryLight-500 dark:bg-primaryDark-500 text-white rounded shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 z-50 focus:outline-none"
+                className="fixed top-20 right-6 flex items-center justify-center w-10 h-10 bg-primaryLight-500 dark:bg-primaryDark-500 text-white rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 z-50 focus:outline-none"
                 onClick={toggleSidebar}
                 aria-label="Toggle Sidebar"
             >
@@ -39,8 +39,8 @@ export default function Sidebar() {
 
             {/* Sidebar */}
             <div
-                className={`fixed top-20 right-1 h-fit w-30 bg-[#f9fafb] text-[#374151] dark:bg-[#1f2937] dark:text-[#E5E7EB] rounded-xl shadow-xl 
-                transform ${isOpen ? "translate-x-0 mr-5" : "translate-x-full"}
+                className={`fixed top-20 right-0 h-fit w-46 bg-[#f9fafb] text-[#374151] dark:bg-[#1f2937] dark:text-[#E5E7EB] rounded-xl shadow-xl 
+                transform ${isOpen ? "translate-x-0" : "translate-x-full"}
                 transition-transform duration-500 ease-in-out`}
             >
                 <nav className="flex flex-col py-4">
@@ -49,12 +49,11 @@ export default function Sidebar() {
                             <li key={index}>
                                 <button
                                     onClick={item.onClick}
-                                    className="group flex items-center gap-3 px-2 py-2 hover:bg-[#FEF3C7] dark:hover:bg-gray-500 hover:rounded transition-colors duration-300 w-full text-left"
+                                    className="group flex items-center gap-3 px-4 py-3 hover:bg-[#FEF3C7] dark:hover:bg-gray-500 hover:rounded-lg transition-colors duration-300 w-full text-left"
                                 >
                                     <span className="text-lg">{item.icon}</span>
                                     <span className="text-sm">{item.label}</span>
                                 </button>
-
                             </li>
                         ))}
                     </ul>

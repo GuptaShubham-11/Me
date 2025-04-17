@@ -21,7 +21,7 @@ export default function Hero() {
                 <div className="relative top-5 w-36 h-36 sm:w-44 sm:h-44 md:w-56 md:h-56">
                     {/* Waving Border */}
                     <motion.div
-                        className="absolute inset-0 w-full h-full rounded-full border-4 border-primaryLight-500 dark:border-secondaryDark-500 animate-[wave_2s_infinite]"
+                        className="absolute inset-0 w-full h-full rounded-full border-4 border-primaryLight-500 dark:border-primaryDark-500 animate-[wave_2s_infinite]"
                         animate={{ scale: [1, 1.1, 1] }}
                         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                     />
@@ -41,13 +41,13 @@ export default function Hero() {
 
                 {/* Text Section */}
                 <div className="mt-10 sm:mt-14 max-w-2xl mx-auto px-4 flex flex-col items-center sm:items-start text-center sm:text-left">
-                    <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-primaryLight dark:text-primaryDark leading-snug flex flex-wrap items-center justify-center sm:justify-start gap-2 sm:gap-3">
+                    <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-primaryLight-500 dark:text-primaryDark-500 leading-snug flex flex-wrap items-center justify-center sm:justify-start gap-2 sm:gap-3">
                         <HiEmoji />
                         <span>Hey, I'm</span>
-                        <span className="text-accentLight dark:text-accentDark">Shubham</span>
+                        <span className="text-accentLight-500 dark:text-accentDark-500">Shubham</span>
                     </h1>
 
-                    <p className="text-base sm:text-lg md:text-xl text-secondaryLight dark:text-secondaryDark mt-4 sm:mt-6 max-w-xl">
+                    <p className="text-base sm:text-lg md:text-x dark:text-secondaryDark-500 sm:mt-6 max-w-xl">
                         A Web Developer crafting modern & interactive web experiences.
                     </p>
                 </div>
@@ -64,7 +64,7 @@ export default function Hero() {
                         onClick={() =>
                             document.getElementById("project")?.scrollIntoView({ behavior: "smooth" })
                         }
-                        className="px-6 py-3 rounded-lg bg-primaryLight-500 text-white text-lg font-semibold shadow-md transition-all hover:brightness-110"
+                        className="px-6 py-3 rounded-lg bg-primaryLight-500 dark:bg-primaryDark-500 text-white text-lg font-semibold shadow-md transition-all hover:brightness-110"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >
@@ -77,8 +77,8 @@ export default function Hero() {
                         animate={{ y: [0, 10, 0] }}
                         transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
                     >
-                        <div className="w-px h-8 bg-gradient-to-b from-textLight to-transparent dark:from-textDark" />
-                        <span className="text-sm text-textLight dark:text-textDark">Scroll Down</span>
+                        <div className="w-px h-8 bg-gradient-to-b from-textLight-500 to-transparent dark:from-textDark-500" />
+                        <span className="text-sm text-textLight-500 dark:text-textDark-500">Scroll Down</span>
                     </motion.div>
                 </motion.div>
             </motion.div>
