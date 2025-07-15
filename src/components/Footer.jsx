@@ -1,52 +1,59 @@
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
-import { SiLeetcode } from "react-icons/si";
+import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { SiLeetcode } from 'react-icons/si';
 
 export default function Footer() {
-    return (
-        <footer className="p-6 md:p-8 bg-backgroundLight-500 dark:bg-backgroundDark-500 text-textLight-500 dark:text-textDark-500 transition-all duration-300 ease-in-out">
-            <div className="container mx-auto flex flex-col md:flex-row items-center justify-between text-center md:text-left space-y-4 md:space-y-0">
+  return (
+    <footer className="bg-backgroundLight dark:bg-backgroundDark text-textLight dark:text-textDark transition-all duration-300 px-6 md:px-12 py-8">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-6">
+        {/* Footer Text */}
+        <p className="text-center md:text-left text-base sm:text-lg font-medium">
+          Designed with{' '}
+          <span role="img" aria-label="love">
+            ❤️
+          </span>{' '}
+          by Shubham Dev
+        </p>
 
-                {/* Footer Text */}
-                <div className="text-lg font-medium text-textLight-500 dark:text-textDark-500">
-                    <p>Designed with ❤️ by Shubham Dev</p>
-                </div>
-
-                {/* Social Media Icons */}
-                <div className="flex space-x-6">
-                    <a
-                        href="https://github.com/GuptaShubham-11"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-textLight-500 dark:text-textDark-500 hover:text-accentLight-500 dark:hover:text-secondaryDark-500 transition-colors duration-300"
-                    >
-                        <FaGithub size={28} />
-                    </a>
-                    <a
-                        href="https://www.linkedin.com/in/guptashubham11"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-textLight-500 dark:text-textDark-500 hover:text-accentLight-500 dark:hover:text-secondaryDark-500 transition-colors duration-300"
-                    >
-                        <FaLinkedin size={28} />
-                    </a>
-                    <a
-                        href="https://x.com/GuptaShubham91"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-textLight-500 dark:text-textDark-500 hover:text-accentLight-500 dark:hover:text-secondaryDark-500 transition-colors duration-300"
-                    >
-                        <FaTwitter size={28} />
-                    </a>
-                    <a
-                        href="https://leetcode.com/u/GuptaShubham-11/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-textLight-500 dark:text-textDark-500 hover:text-accentLight-500 dark:hover:text-secondaryDark-500 transition-colors duration-300"
-                    >
-                        <SiLeetcode size={28} />
-                    </a>
-                </div>
-            </div>
-        </footer>
-    );
+        {/* Social Links */}
+        <div className="flex justify-center md:justify-end gap-6">
+          <a
+            href="https://github.com/GuptaShubham-11"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            className="hover:text-accentLight dark:hover:text-primaryLight transition-colors duration-300"
+          >
+            <FaGithub size={24} />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/guptashubham11"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            className="hover:text-accentLight dark:hover:text-primaryLight transition-colors duration-300"
+          >
+            <FaLinkedin size={24} />
+          </a>
+          <a
+            href="https://x.com/GuptaShubham91"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Twitter (X)"
+            className="hover:text-accentLight dark:hover:text-primaryLight transition-colors duration-300"
+          >
+            <FaTwitter size={24} />
+          </a>
+          <a
+            href="https://leetcode.com/u/GuptaShubham-11/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LeetCode"
+            className="hover:text-accentLight dark:hover:text-primaryLight transition-colors duration-300"
+          >
+            <SiLeetcode size={24} />
+          </a>
+        </div>
+      </div>
+    </footer>
+  );
 }

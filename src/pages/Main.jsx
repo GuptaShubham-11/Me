@@ -1,30 +1,22 @@
-import { Hero, Projects, Skills, Contact, WhyMe } from "../components";
+import { Hero, Projects, Skills, Contact, WhyMe } from '../components';
 
 export default function Main() {
-    return (
-        <main className="overflow-hidden" aria-label="Main Content">
-            {/* Hero Section */}
-            <Hero />
+  return (
+    <main className="" aria-label="Main Content">
+      {/* Hero Section */}
+      <Hero />
 
-            {/* Projects Section */}
-            <div className="py-3">
-                <Projects />
-            </div>
+      {/* Projects Section */}
+      <Projects />
 
-            {/* Skills Section */}
-            <div className="py-3">
-                <Skills />
-            </div>
+      {/* Skills Section */}
+      <Skills />
 
-            {/* Why Work With Me Section */}
-            <div className="py-3">
-                <WhyMe />
-            </div>
+      {/* Why Work With Me Section */}
+      <WhyMe />
 
-            {/* Contact Section */}
-            <div className="py-3">
-                <Contact />
-            </div>
-        </main>
-    );
+      {/* Contact Section */}
+      <Contact />
+    </main>
+  );
 }

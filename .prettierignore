@@ -4,3 +4,6 @@ build
 coverage
 .env
 .envSample
+.package.json
+.package-lock.json
+.git

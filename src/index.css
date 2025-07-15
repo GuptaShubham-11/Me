@@ -1,65 +1,35 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 /* Define Light Theme Colors using custom properties */
 @theme {
-  --color-primaryLight-500: oklch(0.62 0.16 230);
-  /* Crisp Blue */
-  --color-accentLight-500: oklch(0.72 0.18 30);
-  /* Warm Coral */
-  --color-secondaryLight-500: oklch(0.82 0.12 160);
-  /* Soft Cyan */
-  --color-backgroundLight-500: oklch(0.98 0.01 95);
-  /* Clean Off-White */
-  --color-textLight-500: oklch(0.18 0.01 0);
-  /* Charcoal Black */
+  --color-primaryLight: #5eaaa8;
+  --color-accentLight: #f25c54;
+  --color-secondaryLight: #ffffff;
+  --color-backgroundLight: #f4f3ef;
+  --color-textLight: #2e2e2e;
 
-
-  --color-primaryDark-500: oklch(0.55 0.14 235);
-  /* Indigo Blue */
-  --color-accentDark-500: oklch(0.80 0.16 60);
-  /* Golden Peach */
-  --color-secondaryDark-500: oklch(0.72 0.14 170);
-  /* Soft Teal */
-  --color-backgroundDark-500: oklch(0.12 0.02 230);
-  /* Rich Navy */
-  --color-textDark-500: oklch(0.93 0.02 100);
-  /* Almost White */
-
+  --color-primaryDark: #5eaaa8;
+  --color-accentDark: #f25c54;
+  --color-secondaryDark: #1f1f1f;
+  --color-backgroundDark: #151515;
+  --color-textDark: #e8e6e3;
 }
-
-
 
 html.light,
 body.light {
-  background-color: var(--color-backgroundLight-500);
-  color: var(--color-textLight-500);
+  background-color: var(--color-backgroundLight);
+  color: var(--color-textLight);
 }
 
 html.dark,
 body.dark {
-  background-color: var(--color-backgroundDark-500);
-  color: var(--color-textDark-500);
+  background-color: var(--color-backgroundDark);
+  color: var(--color-textDark);
 }
 
-:root {
-  --color-primary: var(--color-primaryLight);
-  --color-accent: var(--color-accentLight);
-  --color-secondary: var(--color-secondaryLight);
-  --color-background: var(--color-backgroundLight);
-  --color-text: var(--color-textLight);
-}
-
-[data-theme="dark"] {
-  --color-primary: var(--color-primaryDark);
-  --color-accent: var(--color-accentDark);
-  --color-secondary: var(--color-secondaryDark);
-  --color-background: var(--color-backgroundDark);
-  --color-text: var(--color-textDark);
-}
-
-
-* {
+/* 
+ {
   cursor: none;
-}
+} */
