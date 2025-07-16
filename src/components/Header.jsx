@@ -15,10 +15,10 @@ export default function Header() {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-xl sm:text-2xl md:text-3xl leading-tight"
+          className="text-xl sm:text-2xl md:text-3xl leading-tight flex items-center"
         >
-          <span className="text-primaryLight">Shubham</span>{' '}
-          <span className=" text-accentLight">Dev</span>
+          <span className="text-primaryLight font-bold">G</span>{' '}
+          <span className=" text-accentLight font-bold">S</span>
         </motion.h1>
 
         {/* Right section */}

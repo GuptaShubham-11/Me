@@ -7,6 +7,10 @@ import {
   FaHtml5,
   FaCss3Alt,
   FaJs,
+  FaCrown,
+  FaChartLine,
+  FaLightbulb,
+  FaRocket,
 } from 'react-icons/fa';
 import {
   SiMongodb,
@@ -21,12 +25,16 @@ import {
   SiMongoose,
   SiJsonwebtokens,
   SiZod,
+  SiPostgresql,
+  SiDrizzle,
 } from 'react-icons/si';
+import { RiBearSmileLine } from 'react-icons/ri';
 
 const categories = [
   {
     title: 'Frontend',
     colorScheme: 'from-blue-600 to-blue-400',
+    icon: <FaCrown className="text-yellow-400" />,
     skills: [
       {
         name: 'React.js',
@@ -38,6 +46,12 @@ const categories = [
         name: 'Redux',
         icon: <SiRedux />,
         gradient: 'from-[#764ABC] to-[#5B34A1]',
+        textColor: 'text-white',
+      },
+      {
+        name: 'Zustand',
+        icon: <RiBearSmileLine />,
+        gradient: 'from-[#F79AD3] to-[#C86FC9]',
         textColor: 'text-white',
       },
       {
@@ -61,7 +75,7 @@ const categories = [
       {
         name: 'Zod',
         icon: <SiZod />,
-        gradient: 'from-teal  to-cyan-400',
+        gradient: 'from-teal-500 to-cyan-400',
         textColor: 'text-white',
       },
       {
@@ -81,6 +95,7 @@ const categories = [
   {
     title: 'Backend',
     colorScheme: 'from-green-600 to-green-400',
+    icon: <FaChartLine className="text-green-400" />,
     skills: [
       {
         name: 'Node.js',
@@ -101,9 +116,15 @@ const categories = [
         textColor: 'text-[#2B3A4A]',
       },
       {
-        name: 'Zod',
-        icon: <SiZod />,
-        gradient: 'from-[#3F8CFF] to-[#5EEAD4]',
+        name: 'PostgreSQL',
+        icon: <SiPostgresql />,
+        gradient: 'from-[#4169E1] to-[#483D8B]',
+        textColor: 'text-white',
+      },
+      {
+        name: 'DrizzleORM',
+        icon: <SiDrizzle />,
+        gradient: 'from-[#2563eb] to-[#1e40af]',
         textColor: 'text-white',
       },
       {
@@ -129,6 +150,7 @@ const categories = [
   {
     title: 'Tools',
     colorScheme: 'from-purple-600 to-purple-400',
+    icon: <FaLightbulb className="text-yellow-300" />,
     skills: [
       {
         name: 'Git',
@@ -146,7 +168,8 @@ const categories = [
   },
   {
     title: 'Deployment',
-    colorScheme: 'from-purple-600 to-pink ',
+    colorScheme: 'from-purple-600 to-pink-500',
+    icon: <FaRocket className="text-pink-400" />,
     skills: [
       {
         name: 'Netlify',
@@ -172,54 +195,78 @@ const categories = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-16 px-6 bg-light dark:bg-dark">
-      <motion.h2
-        className="text-4xl font-bold text-center mb-12 text-textLight dark:text-textDark"
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: 'easeInOut' }}
-      >
-        My Skills
-      </motion.h2>
+    <section id="skills" className="py-16 px-4 sm:px-6">
+      <div className="max-w-6xl mx-auto">
+        <motion.h2
+          className="text-4xl font-bold text-center mb-4 text-[#2e2e2e] dark:text-[#e8e6e3]"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          My Technical Expertise
+        </motion.h2>
 
-      <div className="space-y-12">
-        {categories.map((category, idx) => (
-          <div key={idx}>
-            <h3 className="text-2xl font-semibold text-center text-primaryLight dark:text-primaryDark mb-6">
-              {category.title}
-            </h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
-              {category.skills.map((skill, index) => (
-                <motion.div
-                  key={index}
-                  className={`p-5 rounded-2xl shadow-lg flex flex-col items-center justify-center bg-gradient-to-r ${skill.gradient} ${skill.textColor} backdrop-blur-md bg-opacity-90 border border-white/20 transition-transform duration-300 hover:scale-105 hover:border-white/50`}
-                  initial={{ opacity: 0, y: 50 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.05 }}
-                  whileHover={{ y: -5 }}
-                  aria-label={skill.name}
-                >
+        <motion.p
+          className="text-xl text-center mb-16 max-w-2xl mx-auto text-gray-600 dark:text-gray-300"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          Technologies I've mastered through real-world projects and continuous
+          learning
+        </motion.p>
+
+        {/* Skills Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {categories.map((category, idx) => (
+            <motion.div
+              key={idx}
+              className="bg-white dark:bg-[#1f1f1f] rounded-2xl shadow-xl overflow-hidden border border-gray-200 dark:border-gray-800"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 * idx }}
+            >
+              {/* Category Header */}
+              <div
+                className={`bg-gradient-to-r ${category.colorScheme} p-5 flex items-center gap-4`}
+              >
+                <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center text-2xl">
+                  {category.icon}
+                </div>
+                <h3 className="text-2xl font-bold text-white">
+                  {category.title}
+                </h3>
+              </div>
+
+              {/* Skills Grid */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 p-5">
+                {category.skills.map((skill, index) => (
                   <motion.div
-                    className="text-4xl mb-3"
-                    style={{
-                      textShadow: '0 0 6px rgba(255,255,255,0.8)',
-                      filter: 'drop-shadow(0 0 10px rgba(255,255,255,0.6))',
-                    }}
-                    whileHover={{ scale: 1.2 }}
-                    transition={{
-                      duration: 0.5,
-                      type: 'spring',
-                      stiffness: 200,
-                    }}
+                    key={index}
+                    className="relative group"
+                    whileHover={{ y: -5 }}
+                    transition={{ duration: 0.2 }}
                   >
-                    {skill.icon}
+                    <div
+                      className={`p-4 rounded-xl shadow-md flex flex-col items-center justify-center bg-gradient-to-r ${skill.gradient} ${skill.textColor} backdrop-blur-sm bg-opacity-90 border border-white/20 transition-all duration-300`}
+                    >
+                      <motion.div
+                        className="text-3xl mb-3"
+                        whileHover={{ scale: 1.2, rotate: 10 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        {skill.icon}
+                      </motion.div>
+                      <h3 className="text-sm font-semibold text-center">
+                        {skill.name}
+                      </h3>
+                    </div>
                   </motion.div>
-                  <h3 className="text-sm font-semibold">{skill.name}</h3>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        ))}
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
