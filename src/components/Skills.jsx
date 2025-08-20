@@ -27,6 +27,7 @@ import {
   SiZod,
   SiPostgresql,
   SiDrizzle,
+  SiNextdotjs,
 } from 'react-icons/si';
 import { RiBearSmileLine } from 'react-icons/ri';
 
@@ -164,6 +165,12 @@ const categories = [
         gradient: 'from-[#181717] to-[#2B2B2B]',
         textColor: 'text-white',
       },
+      {
+        name: 'Next.js',
+        icon: <SiNextdotjs />,
+        gradient: 'from-[#000000] to-[#111111]',
+        textColor: 'text-white',
+      }
     ],
   },
   {

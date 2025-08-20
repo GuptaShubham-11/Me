@@ -14,6 +14,7 @@ import {
   SiMongodb,
   SiTailwindcss,
   SiAppwrite,
+  SiThreedotjs,
 } from 'react-icons/si';
 import Utube from '../assets/HomeDark.jpeg';
 import Todo from '../assets/Todo.jpeg';
@@ -21,6 +22,7 @@ import Blogify from '../assets/Blogify.jpeg';
 import ShopEasy from '../assets/ShopEasy.jpeg';
 import KanbanBoard from '../assets/kanban-board.jpeg';
 import StayFinder from '../assets/StayFinder.png';
+import SolarSystem from '../assets/SolorSystem.jpeg';
 
 const projects = [
   {
@@ -116,6 +118,19 @@ const projects = [
   },
   {
     id: 4,
+    title: '3D SolorSystem',
+    status: 'Done',
+    description: 'A 3D solar system built using Three.js and React.',
+    image: SolarSystem,
+    github: 'https://github.com/GuptaShubham-11/SolarSystem',
+    live: 'https://solar-system-liart-rho.vercel.app',
+    technologies: [
+      { name: 'React', icon: <FaReact className="text-blue" /> },
+      { name: 'Three.js', icon: <SiThreedotjs className="text-gray-400" /> },
+    ],
+  },
+  {
+    id: 5,
     title: 'Blogify',
     status: 'Issue',
     description: 'A dynamic blogging platform powered by React and Appwrite.',

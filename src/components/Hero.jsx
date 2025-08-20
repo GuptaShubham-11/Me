@@ -172,7 +172,7 @@ export default function Hero() {
                 repeatType: 'reverse',
               }}
             >
-              <span className="block text-sm">6+ Projects</span>
+              <span className="block text-sm">10+ Projects</span>
             </motion.div>
           </div>
         </motion.div>

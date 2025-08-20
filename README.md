@@ -1,6 +1,8 @@
 # Me
 
-This is a personal portfolio website built using React, Tailwind CSS 4.0, and Framer Motion for animation. The project features a custom cursor and a dark/light theme toggle.
+This is a personal portfolio website built using React, Tailwind CSS 4.0, and Framer Motion for animation.
+
+### It is a single-page application that showcases my work, skills, and experience as a full-stack developer.
 
 ## Technologies Used
 
@@ -8,12 +10,8 @@ This is a personal portfolio website built using React, Tailwind CSS 4.0, and Fr
 - **Tailwind CSS 4.0**: A utility-first CSS framework for designing responsive layouts.
 - **Redux**: A state management library.
 - **Framer Motion**: A library for adding animations to React components.
-- **Custom Cursor**: A custom cursor implementation for a more interactive user experience.
-
-## Screenshot
-
-![Portfolio Light Screenshot](./ScreenshortsOfPortfolio/PortfolioLight.jpeg)
-![Portfolio Dark Screenshot](./ScreenshortsOfPortfolio/PortfolioDark.jpeg)
+- **EmailJS**: A JavaScript library for sending emails.
+- **Dark/Light Mode Toggle**: A button to switch between dark and light themes.
 
 > Above: A screenshot of the portfolio homepage.
 
@@ -81,14 +79,6 @@ This is a personal portfolio website built using React, Tailwind CSS 4.0, and Fr
 - **Dark/Light Mode Toggle**: Switch between dark and light themes with the theme toggle button.
 - **Custom Cursor**: An interactive custom cursor adds a personalized touch to the design.
 - **Smooth Animations**: The app uses Framer Motion for smooth animations and transitions.
-
-## Folder Structure
-
-- `public/`: Contains static assets like images and the `index.html` file.
-- `src/`: Contains all the source code.
-- `components/`: Includes reusable components like `Header`, `Footer`, `Layout`, and `ThemeToggle`.
-- `features/`: Contains Redux slice files (e.g., `themeSlice.js`).
-- `store/`: Includes the Redux store configuration.
 
 ## Contributing
 

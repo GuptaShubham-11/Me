@@ -5,7 +5,7 @@ import {
   AiOutlineClose,
   AiOutlineMail,
 } from 'react-icons/ai';
-import { BiCodeBlock, BiBriefcase } from 'react-icons/bi';
+import { BiCodeBlock, BiBriefcase, BiCheckCircle } from 'react-icons/bi';
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,7 +43,12 @@ export default function Sidebar() {
     {
       icon: <BiCodeBlock />,
       label: 'Skills',
-      onClick: () => scrollToSection('skill'),
+      onClick: () => scrollToSection('skills'),
+    },
+    {
+      icon: <BiCheckCircle />,
+      label: 'Why Work',
+      onClick: () => scrollToSection('whyme'),
     },
     {
       icon: <AiOutlineMail />,

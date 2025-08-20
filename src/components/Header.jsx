@@ -30,7 +30,7 @@ export default function Header() {
         >
           {/* Social Icons */}
           <a
-            href="https://gitingest.com/GuptaShubham-11"
+            href="https://github.com/GuptaShubham-11"
             target="_blank"
             rel="noopener noreferrer"
             className="text-text hover:text-accentLight dark:hover:text-accentDark transition-colors"

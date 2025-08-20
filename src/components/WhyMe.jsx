@@ -70,7 +70,7 @@ export default function BenefitsStepper() {
   }, []);
 
   return (
-    <section className="py-16 px-4 sm:px-6 bg-transparent overflow-x-hidden">
+    <section id='whyme' className="py-16 px-4 sm:px-6 bg-transparent overflow-x-hidden">
       <div className="max-w-6xl mx-auto">
         <motion.h2
           className="text-4xl font-bold text-center mb-4 text-[#2e2e2e] dark:text-[#e8e6e3]"
@@ -235,7 +235,7 @@ export default function BenefitsStepper() {
           transition={{ duration: 0.5, delay: 1.2 }}
         >
           <div className="bg-gradient-to-r from-[#5eaaa8]/10 to-[#5eaaa8]/5 p-6 rounded-2xl border border-[#5eaaa8]/20 text-center">
-            <div className="text-4xl font-bold text-[#5eaaa8]">15+</div>
+            <div className="text-4xl font-bold text-[#5eaaa8]">10+</div>
             <div className="mt-2 text-gray-600 dark:text-gray-300">
               Projects
             </div>
