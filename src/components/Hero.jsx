@@ -58,7 +58,7 @@ export default function Hero() {
       </div>
 
       {/* Content container */}
-      <div className="relative z-10 max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="relative z-10 max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-4 items-center">
         {/* Left column - Text content */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
@@ -116,7 +116,7 @@ export default function Hero() {
               }}
               whileTap={{ scale: 0.98 }}
             >
-              View My Projects
+              View My Work
             </motion.button>
 
             <motion.button

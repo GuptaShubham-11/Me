@@ -178,7 +178,7 @@ export default function BenefitsStepper() {
         </div>
 
         {/* Mobile Circular Layout */}
-        <div className="md:hidden relative h-[480px] max-w-full overflow-visible px-2">
+        <div className="md:hidden relative h-[380px] max-w-full overflow-visible px-2">
           <div
             className="absolute left-1/2 top-1/2 w-48 h-48 rounded-full bg-gradient-to-r from-[#5eaaa8] to-[#f25c54] flex items-center justify-center shadow-2xl z-0 transform -translate-x-1/2 -translate-y-1/2"
             onClick={() => setIsActive((prev) => !prev)}
