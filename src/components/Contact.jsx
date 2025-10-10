@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import emailjs from 'emailjs-com';
 import Confetti from 'react-confetti';
 import { useWindowSize } from 'react-use';
@@ -48,9 +48,9 @@ const Contact = () => {
   };
 
   return (
-    <div
+    <section
       id="contact"
-      className="flex justify-center items-center min-h-screen p-4 md:p-8 relative bg-transparent"
+      className="flex justify-center items-center px-4 sm:px-6 lg:px-8 relative bg-transparent"
     >
       <div className="z-20">
         {isSent && (
@@ -59,10 +59,12 @@ const Contact = () => {
             height={height}
             numberOfPieces={200}
             recycle={false}
+            className="pointer-events-none"
           />
         )}
       </div>
-      <div className="relative z-10 w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 rounded-2xl overflow-hidden shadow-2xl">
+
+      <div className="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 rounded-2xl overflow-hidden shadow-2xl">
         {/* Contact Information Panel */}
         <motion.div
           className="p-8 md:p-12 bg-gradient-to-br from-[#5eaaa8] to-[#4c9e9c] text-textLight"
@@ -98,7 +100,15 @@ const Contact = () => {
               </div>
               <div>
                 <h3 className="font-bold text-lg">Email</h3>
-                <p className="opacity-90 italic break-all cursor-copy">
+                <p
+                  className="opacity-90 italic break-all cursor-copy"
+                  onClick={() =>
+                    navigator.clipboard.writeText(
+                      'guptashubham112005@gmail.com'
+                    )
+                  }
+                  title="Click to copy"
+                >
                   guptashubham112005@gmail.com
                 </p>
               </div>
@@ -324,17 +334,13 @@ const Contact = () => {
 
             <motion.button
               type="submit"
-              className="w-full py-4 bg-accentLight cursor-pointer text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center"
               disabled={sending}
-              whileHover={{ scale: 1.02 }}
+              aria-busy={sending}
+              className="w-full py-2 bg-accentLight cursor-pointer text-white font-semibold rounded shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group"
               whileTap={{ scale: 0.98 }}
             >
               {sending ? (
-                <motion.span
-                  className="flex items-center"
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
-                >
+                <motion.span className="flex items-center">
                   <svg
                     className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
                     xmlns="http://www.w3.org/2000/svg"
@@ -359,18 +365,20 @@ const Contact = () => {
               ) : (
                 <>
                   Send Message
-                  <svg
+                  <motion.svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="ml-2 h-5 w-5"
+                    className="ml-2  h-5 w-5 group-hover:rotate-180 transition-all duration-300"
                     viewBox="0 0 20 20"
                     fill="currentColor"
+                    whileHover={{ x: 5, rotate: -180 }}
+                    transition={{ type: 'spring', stiffness: 300, damping: 20 }}
                   >
-                    <path
+                    <motion.path
                       fillRule="evenodd"
                       d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
                       clipRule="evenodd"
                     />
-                  </svg>
+                  </motion.svg>
                 </>
               )}
             </motion.button>
@@ -425,7 +433,7 @@ const Contact = () => {
           </form>
         </motion.div>
       </div>
-    </div>
+    </section>
   );
 };
 

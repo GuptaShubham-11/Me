@@ -9,7 +9,7 @@ import {
   FaDatabase,
   FaNodeJs,
   FaChartLine,
-  FaBusinessTime
+  FaBusinessTime,
 } from 'react-icons/fa';
 import {
   SiExpress,
@@ -25,13 +25,13 @@ import ShopEasy from '../assets/ShopEasy.jpeg';
 import KanbanBoard from '../assets/kanban-board.jpeg';
 import StayFinder from '../assets/StayFinder.png';
 import SolarSystem from '../assets/SolorSystem.jpeg';
+import { BsBack, BsCode, BsFront } from 'react-icons/bs';
 
 const projects = [
   {
     id: 0,
     title: 'SmartTodo',
-    type: 'Growth',
-    status: 'In Progress',
+    type: 'Full Stack',
     description:
       'A modern collaborative Kanban-based task management app with group boards, member permissions, and activity logs.',
     image: KanbanBoard,
@@ -51,8 +51,7 @@ const projects = [
   {
     id: -1,
     title: 'StayFinder',
-    type: 'Business',
-    status: 'Done',
+    type: 'Full Stack',
     description:
       'A full-featured stay booking platform with listing, filtering, wishlisting, and booking flow built using MERN stack.',
     image: StayFinder,
@@ -72,8 +71,7 @@ const projects = [
   {
     id: 1,
     title: 'Utube',
-    type: 'Growth',
-    status: 'Done',
+    type: 'Full Stack',
     description:
       'A modern and interactive video streaming platform built using the MERN stack.',
     image: Utube,
@@ -89,8 +87,7 @@ const projects = [
   {
     id: 2,
     title: 'Todo',
-    type: 'Growth',
-    status: 'Done',
+    type: 'Backend',
     description:
       'A full-stack to-do app with JWT authentication and a modern UI.',
     image: Todo,
@@ -106,8 +103,7 @@ const projects = [
   {
     id: 3,
     title: 'ShopEasy',
-    type: 'Business',
-    status: 'Done',
+    type: 'Frontend',
     description:
       'A dynamic e-commerce platform powered by React with Fake Store Api.',
     image: ShopEasy,
@@ -126,8 +122,7 @@ const projects = [
   {
     id: 4,
     title: '3D SolorSystem',
-    type: 'Growth',
-    status: 'Done',
+    type: 'Frontend',
     description: 'A 3D solar system built using Three.js and React.',
     image: SolarSystem,
     github: 'https://github.com/GuptaShubham-11/SolarSystem',
@@ -140,8 +135,7 @@ const projects = [
   {
     id: 5,
     title: 'Blogify',
-    type: 'Growth',
-    status: 'Issue',
+    type: 'Frontend',
     description: 'A dynamic blogging platform powered by React and Appwrite.',
     image: Blogify,
     github: 'https://github.com/GuptaShubham-11/Blogify',
@@ -154,10 +148,10 @@ const projects = [
       },
       { name: 'Appwrite', icon: <SiAppwrite className="text-red-500" /> },
     ],
-  }
+  },
 ];
 
-const Card = ({ title, type, status, onClick, description, technologies }) => {
+const Card = ({ title, type, onClick, description, technologies }) => {
   return (
     <motion.div
       onClick={onClick}
@@ -171,20 +165,13 @@ const Card = ({ title, type, status, onClick, description, technologies }) => {
         </h3>
         <div className="flex flex-col items-end gap-2">
           <span
-            className={`text-xs px-2 py-1 rounded-full ${status === 'Done'
-              ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300'
-              : status === 'In Progress'
-                ? 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300'
-                : 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300'
-              }`}
-          >
-            {status}
-          </span>
-          <span
-            className={`text-xs px-2 py-1 rounded-full ${type === 'Business'
-              ? 'bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300'
-              : 'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300'
-              }`}
+            className={`text-xs px-2 py-1 rounded-full ${
+              type === 'Backend'
+                ? 'bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300'
+                : type === 'Frontend'
+                  ? 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300'
+                  : 'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300'
+            }`}
           >
             {type}
           </span>
@@ -199,8 +186,9 @@ const Card = ({ title, type, status, onClick, description, technologies }) => {
         {technologies.slice(0, 3).map((tech, idx) => (
           <div
             key={idx}
-            className="text-xs px-2 py-1 rounded-md bg-gray-100 dark:bg-[#2a2a2a] text-gray-700 dark:text-gray-300"
+            className="text-xs flex items-center gap-1 px-2 py-1 rounded-md bg-gray-100 dark:bg-[#2a2a2a] text-gray-700 dark:text-gray-300"
           >
+            {tech.icon}
             {tech.name}
           </div>
         ))}
@@ -212,9 +200,7 @@ const Card = ({ title, type, status, onClick, description, technologies }) => {
       </div>
 
       <div className="flex items-center justify-between">
-        <span className="text-xs text-[#5eaaa8] font-medium">
-          View details
-        </span>
+        <span className="text-xs text-[#5eaaa8] font-medium">View details</span>
         <motion.div
           className="w-6 h-6 rounded-full bg-[#5eaaa8] flex items-center justify-center text-white text-xs"
           animate={{ x: [0, 4, 0] }}
@@ -270,10 +256,11 @@ const Modal = ({ project, onClose }) => {
                 </h2>
                 <div className="flex items-center gap-4 mt-2">
                   <span
-                    className={`text-xs px-2 py-1 rounded-full ${project.type === 'Business'
-                      ? 'bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300'
-                      : 'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300'
-                      }`}
+                    className={`text-xs px-2 py-1 rounded-full ${
+                      project.type === 'Business'
+                        ? 'bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300'
+                        : 'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300'
+                    }`}
                   >
                     {project.type}
                   </span>
@@ -296,12 +283,13 @@ const Modal = ({ project, onClose }) => {
                 </div>
               </div>
               <span
-                className={`text-xs px-2 py-1 rounded-full ${project.status === 'Done'
-                  ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300'
-                  : project.status === 'In Progress'
-                    ? 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300'
-                    : 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300'
-                  }`}
+                className={`text-xs px-2 py-1 rounded-full ${
+                  project.status === 'Done'
+                    ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300'
+                    : project.status === 'In Progress'
+                      ? 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300'
+                      : 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300'
+                }`}
               >
                 {project.status}
               </span>
@@ -336,23 +324,23 @@ const Modal = ({ project, onClose }) => {
 
 const Projects = () => {
   const [activeProject, setActiveProject] = useState(null);
-  const [statusFilter, setStatusFilter] = useState('All');
-  const [typeFilter, setTypeFilter] = useState('All');
+  const [typeFilter, setTypeFilter] = useState('Full Stack');
 
-  const filteredProjects = projects.filter(project => {
-    const statusMatch = statusFilter === 'All' || project.status === statusFilter;
-    const typeMatch = typeFilter === 'All' || project.type === typeFilter;
-    return statusMatch && typeMatch;
+  const filteredProjects = projects.filter((project) => {
+    return project.type === typeFilter;
   });
 
   return (
-    <section id="project" className="px-4 py-20 max-w-6xl mx-auto">
-      <div className="text-center mb-12">
+    <section
+      id="project"
+      className="px-4 sm:px-6 lg:px-8 py-20 max-w-5xl xl:max-w-7xl mx-auto"
+    >
+      <div className="text-center mb-6">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-bold text-[#2e2e2e] dark:text-[#e8e6e3] mb-4"
+          className="text-3xl md:text-4xl font-bold text-[#2e2e2e] dark:text-[#e8e6e3] mb-2"
         >
           My Works
         </motion.h2>
@@ -361,9 +349,9 @@ const Projects = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto"
+          className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto text-lg"
         >
-          Here are some of the projects I've worked on, categorized by Growth (skills development) and Business (client-focused solutions).
+          Here are some of the projects I've worked on.
         </motion.p>
       </div>
 
@@ -380,43 +368,28 @@ const Projects = () => {
             <FaChartLine className="text-orange-500" />
             <span>Project Type:</span>
           </div>
-          {['All', 'Growth', 'Business'].map((type) => (
+          {['Frontend', 'Backend', 'Full Stack'].map((type) => (
             <button
               key={type}
               onClick={() => setTypeFilter(type)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors flex items-center gap-2 ${typeFilter === type
-                ? type === 'Business'
-                  ? 'bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300'
-                  : 'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300'
-                : 'bg-gray-100 dark:bg-[#2a2a2a] text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-[#333]'
-                }`}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors flex items-center gap-2 ${
+                typeFilter === type
+                  ? type === 'Backend'
+                    ? 'bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300'
+                    : type === 'Frontend'
+                      ? 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300'
+                      : 'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300'
+                  : 'bg-gray-100 dark:bg-[#2a2a2a] text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-[#333]'
+              }`}
             >
-              {type === 'Business' ? <FaBusinessTime /> : <FaChartLine />}
+              {type === 'Frontend' ? (
+                <BsFront />
+              ) : type === 'Backend' ? (
+                <BsBack />
+              ) : (
+                <BsCode />
+              )}
               {type}
-            </button>
-          ))}
-        </motion.div>
-
-        <motion.div
-          className="hidden md:flex flex-wrap justify-center gap-3"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-        >
-          <div className="flex items-center gap-2 mr-4 text-sm font-medium text-gray-700 dark:text-gray-300">
-            <span>Status:</span>
-          </div>
-          {['All', 'Done', 'In Progress', 'Issue'].map((status) => (
-            <button
-              key={status}
-              onClick={() => setStatusFilter(status)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${statusFilter === status
-                ? 'bg-[#5eaaa8] text-white'
-                : 'bg-gray-100 dark:bg-[#2a2a2a] text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-[#333]'
-                }`}
-            >
-              {status}
             </button>
           ))}
         </motion.div>
@@ -436,7 +409,6 @@ const Projects = () => {
               <Card
                 title={project.title}
                 type={project.type}
-                status={project.status}
                 description={project.description}
                 technologies={project.technologies}
                 onClick={() => setActiveProject(project)}
@@ -450,7 +422,7 @@ const Projects = () => {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="text-center py-12 text-gray-500 dark:text-gray-400"
+          className="text-center py-12 text-gray-500 dark:text-gray-400 w-full"
         >
           No projects found with the selected filters.
         </motion.div>

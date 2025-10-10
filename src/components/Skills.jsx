@@ -170,7 +170,7 @@ const categories = [
         icon: <SiNextdotjs />,
         gradient: 'from-[#000000] to-[#111111]',
         textColor: 'text-white',
-      }
+      },
     ],
   },
   {
@@ -202,78 +202,78 @@ const categories = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-16 px-4 sm:px-6">
-      <div className="max-w-6xl mx-auto">
-        <motion.h2
-          className="text-4xl font-bold text-center mb-4 text-[#2e2e2e] dark:text-[#e8e6e3]"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          My Technical Expertise
-        </motion.h2>
+    <section
+      id="skills"
+      className="w-full max-w-5xl xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+    >
+      <motion.h2
+        className="text-4xl font-bold text-center mb-2 text-[#2e2e2e] dark:text-[#e8e6e3]"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        My Technical Expertise
+      </motion.h2>
 
-        <motion.p
-          className="text-xl text-center mb-16 max-w-2xl mx-auto text-gray-600 dark:text-gray-300"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          Technologies I've mastered through real-world projects and continuous
-          learning
-        </motion.p>
+      <motion.p
+        className="text-xl text-center mb-16 max-w-2xl mx-auto text-gray-600 dark:text-gray-300"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+      >
+        I've mastered through real-world projects and continuous learning
+      </motion.p>
 
-        {/* Skills Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {categories.map((category, idx) => (
-            <motion.div
-              key={idx}
-              className="bg-white dark:bg-[#1f1f1f] rounded-2xl shadow-xl overflow-hidden border border-gray-200 dark:border-gray-800"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 * idx }}
+      {/* Skills Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {categories.map((category, idx) => (
+          <motion.div
+            key={idx}
+            className="bg-white dark:bg-[#1f1f1f] rounded-2xl shadow-xl overflow-hidden border border-gray-200 dark:border-gray-800"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 * idx }}
+          >
+            {/* Category Header */}
+            <div
+              className={`bg-gradient-to-r ${category.colorScheme} p-5 flex items-center gap-4`}
             >
-              {/* Category Header */}
-              <div
-                className={`bg-gradient-to-r ${category.colorScheme} p-5 flex items-center gap-4`}
-              >
-                <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center text-2xl">
-                  {category.icon}
-                </div>
-                <h3 className="text-2xl font-bold text-white">
-                  {category.title}
-                </h3>
+              <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center text-2xl">
+                {category.icon}
               </div>
+              <h3 className="text-2xl font-bold text-white">
+                {category.title}
+              </h3>
+            </div>
 
-              {/* Skills Grid */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 p-5">
-                {category.skills.map((skill, index) => (
-                  <motion.div
-                    key={index}
-                    className="relative group"
-                    whileHover={{ y: -5 }}
-                    transition={{ duration: 0.2 }}
+            {/* Skills Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 p-5">
+              {category.skills.map((skill, index) => (
+                <motion.div
+                  key={index}
+                  className="relative group"
+                  whileHover={{ y: -5 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <div
+                    className={`p-4 rounded-xl shadow-md flex flex-col items-center justify-center bg-gradient-to-r ${skill.gradient} ${skill.textColor} backdrop-blur-sm bg-opacity-90 border border-white/20 transition-all duration-300`}
                   >
-                    <div
-                      className={`p-4 rounded-xl shadow-md flex flex-col items-center justify-center bg-gradient-to-r ${skill.gradient} ${skill.textColor} backdrop-blur-sm bg-opacity-90 border border-white/20 transition-all duration-300`}
+                    <motion.div
+                      className="text-3xl mb-3"
+                      whileHover={{ scale: 1.2, rotate: 10 }}
+                      transition={{ duration: 0.3 }}
                     >
-                      <motion.div
-                        className="text-3xl mb-3"
-                        whileHover={{ scale: 1.2, rotate: 10 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        {skill.icon}
-                      </motion.div>
-                      <h3 className="text-sm font-semibold text-center">
-                        {skill.name}
-                      </h3>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </div>
+                      {skill.icon}
+                    </motion.div>
+                    <h3 className="text-sm font-semibold text-center">
+                      {skill.name}
+                    </h3>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        ))}
       </div>
     </section>
   );

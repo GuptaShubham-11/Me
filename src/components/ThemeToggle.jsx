@@ -34,7 +34,11 @@ const ThemeToggle = () => {
           transition={{ duration: 0.3 }}
           className="flex items-center justify-center"
         >
-          {theme === 'dark' ? <Moon size={18} /> : <Sun size={18} />}
+          {theme === 'dark' ? (
+            <Moon size={18} className="fill-textLight dark:fill-textDark" />
+          ) : (
+            <Sun size={18} className="fill-textLight dark:fill-textDark" />
+          )}
         </motion.span>
       </AnimatePresence>
     </button>

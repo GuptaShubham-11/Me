@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import profilePic from '../assets/ShubhamGupta.jpeg';
 
-// Emoji component with animation
 const HiEmoji = () => (
   <motion.div
     animate={{
@@ -23,10 +22,10 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden px-4 mt-20 sm:mt-5"
+      className="relative w-full  flex items-center justify-center overflow-hidden mt-20 "
     >
       {/* Background elements */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 flex justify-between items-center max-w-7xl mx-auto">
         <div className="absolute top-10 left-10 w-72 h-72 rounded-full bg-[#5eaaa8]/10 blur-3xl animate-pulse"></div>
         <div className="absolute bottom-20 right-20 w-64 h-64 rounded-full bg-[#f25c54]/10 blur-3xl animate-pulse"></div>
 
@@ -58,7 +57,7 @@ export default function Hero() {
       </div>
 
       {/* Content container */}
-      <div className="relative z-10 max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-4 items-center">
+      <div className="relative z-10 max-w-5xl xl:max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-8 items-center justify-center px-4 sm:px-6 lg:px-8">
         {/* Left column - Text content */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
@@ -66,7 +65,7 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
           className="text-center lg:text-left"
         >
-          <div className="inline-flex items-center gap-3 mb-4 px-4 py-2 rounded-full bg-white/80 dark:bg-[#1f1f1f]/80 backdrop-blur-sm shadow-sm">
+          <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 rounded-full bg-white/80 dark:bg-[#1f1f1f]/80 backdrop-blur-sm shadow-sm">
             <HiEmoji />
             <span className="text-sm font-medium text-[#5eaaa8]">
               Welcome to my portfolio!
@@ -82,7 +81,7 @@ export default function Hero() {
             <span className="block text-textLight dark:text-textDark">
               I'm Shubham Gupta,
             </span>
-            <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-[#5eaaa8] to-[#f25c54]">
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#5eaaa8] to-[#f25c54]">
               Full Stack Developer
             </span>
           </motion.h1>
@@ -109,9 +108,8 @@ export default function Hero() {
                   .getElementById('project')
                   ?.scrollIntoView({ behavior: 'smooth' })
               }
-              className="px-8 py-3 rounded cursor-pointer bg-gradient-to-r from-[#5eaaa8] to-[#5eaaa8] text-textLight dark:text-textDark font-semibold shadow-lg hover:shadow-xl transition-all"
+              className="px-8 py-2 rounded cursor-pointer bg-gradient-to-r from-[#5eaaa8] to-[#5eaaa8] text-textLight dark:text-textDark font-semibold shadow-lg hover:shadow-xl transition-all"
               whileHover={{
-                scale: 1.03,
                 background: 'linear-gradient(to right, #5eaaa8, #4c9e9c)',
               }}
               whileTap={{ scale: 0.98 }}
@@ -125,8 +123,7 @@ export default function Hero() {
                   .getElementById('contact')
                   ?.scrollIntoView({ behavior: 'smooth' })
               }
-              className="px-8 py-3 rounded cursor-pointer bg-accentLight dark:bg-[#1f1f1f] dark:border-[#5eaaa8] text-textLight dark:text-textDark font-semibold shadow-sm hover:shadow-md transition-all"
-              whileHover={{ scale: 1.03 }}
+              className="px-8 py-2 rounded cursor-pointer bg-accentLight dark:bg-[#1f1f1f] dark:border-[#5eaaa8] text-textLight dark:text-textDark font-semibold shadow-sm hover:shadow-md transition-all"
               whileTap={{ scale: 0.98 }}
             >
               Contact Me
@@ -147,7 +144,7 @@ export default function Hero() {
             <div className="absolute -bottom-6 -left-6 w-28 h-28 rounded-full bg-[#f25c54]/20 blur-xl z-0"></div>
 
             {/* Profile image container */}
-            <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden border-4 border-white shadow-2xl z-10">
+            <div className="relative size-64 md:size-80 rounded-2xl overflow-hidden border-4 border-white shadow-2xl z-10">
               <motion.img
                 src={profilePic}
                 alt="Shubham Gupta - Full Stack Developer"
@@ -164,7 +161,6 @@ export default function Hero() {
               className="absolute top-0 -right-4 bg-gradient-to-r from-[#5eaaa8] to-[#f25c54] text-white px-5 py-2 rounded-full font-bold shadow-lg z-20"
               animate={{
                 y: [0, -10, 0],
-                scale: [1, 1.05, 1],
               }}
               transition={{
                 duration: 2,
@@ -172,7 +168,7 @@ export default function Hero() {
                 repeatType: 'reverse',
               }}
             >
-              <span className="block text-sm">10+ Projects</span>
+              <span className="text-md">Fast & Responsive</span>
             </motion.div>
           </div>
         </motion.div>

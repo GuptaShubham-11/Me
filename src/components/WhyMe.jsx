@@ -70,10 +70,10 @@ export default function BenefitsStepper() {
   }, []);
 
   return (
-    <section id='whyme' className="py-16 px-4 sm:px-6 bg-transparent overflow-x-hidden">
-      <div className="max-w-6xl mx-auto">
+    <section id="whyme" className="py-20 bg-transparent overflow-x-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2
-          className="text-4xl font-bold text-center mb-4 text-[#2e2e2e] dark:text-[#e8e6e3]"
+          className="text-4xl font-bold text-center mb-2 text-[#2e2e2e] dark:text-[#e8e6e3]"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -93,7 +93,7 @@ export default function BenefitsStepper() {
 
         {/* Desktop Circular Layout */}
         <div
-          className="hidden md:block relative h-[500px] group"
+          className="hidden md:block relative h-[450px] group"
           onMouseEnter={() => setIsActive(true)}
           onMouseLeave={() => {
             setIsActive(false);
@@ -126,7 +126,7 @@ export default function BenefitsStepper() {
             return (
               <motion.div
                 key={benefit.id}
-                className="absolute left-1/2 top-1/2 z-10"
+                className="absolute left-[45%] top-[40%] z-20"
                 initial={{ x: 0, y: 0, opacity: 0, scale: 0 }}
                 animate={
                   isActive
@@ -152,7 +152,7 @@ export default function BenefitsStepper() {
 
                 {activeId === benefit.id && (
                   <motion.div
-                    className="absolute left-full top-1/2 -translate-y-1/2 ml-4 w-64 p-4 rounded-xl bg-white dark:bg-[#2a2a2a] shadow-lg z-30"
+                    className="absolute left-full top-1/2 -translate-y-1/2 ml-4 w-64 p-4 rounded-xl bg-white dark:bg-[#2a2a2a] shadow-lg z-20"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.3 }}
@@ -166,7 +166,7 @@ export default function BenefitsStepper() {
                       <h4 className="font-bold text-lg text-[#2e2e2e] dark:text-[#e8e6e3]">
                         {benefit.title}
                       </h4>
-                      <p className="mt-2 text-gray-600 dark:text-gray-300">
+                      <p className=" text-gray-600 dark:text-gray-300">
                         {benefit.description}
                       </p>
                     </div>
@@ -178,7 +178,7 @@ export default function BenefitsStepper() {
         </div>
 
         {/* Mobile Circular Layout */}
-        <div className="md:hidden relative h-[380px] max-w-full overflow-visible px-2">
+        <div className="md:hidden relative h-[350px] max-w-full overflow-visible px-2">
           <div
             className="absolute left-1/2 top-1/2 w-48 h-48 rounded-full bg-gradient-to-r from-[#5eaaa8] to-[#f25c54] flex items-center justify-center shadow-2xl z-0 transform -translate-x-1/2 -translate-y-1/2"
             onClick={() => setIsActive((prev) => !prev)}
@@ -192,14 +192,14 @@ export default function BenefitsStepper() {
           </div>
 
           {benefits.map((benefit, index) => {
-            const angle = index * (360 / benefits.length) * (Math.PI / 180);
+            const angle = index * (370 / benefits.length) * (Math.PI / 180);
             const x = -radius * Math.cos(angle);
             const y = radius * Math.sin(angle);
 
             return (
               <motion.div
                 key={benefit.id}
-                className="mr-5 absolute left-1/2 top-1/2 z-10"
+                className=" absolute left-[45%] top-[40%] z-10"
                 initial={{ x: 0, y: 0, opacity: 0, scale: 0 }}
                 animate={
                   isActive
@@ -213,7 +213,7 @@ export default function BenefitsStepper() {
                 }}
               >
                 <div
-                  className={`w-20 h-20  sm:w-24 sm:h-24 rounded-2xl bg-gradient-to-r ${benefit.gradient} flex flex-col items-center justify-center p-3 text-white shadow-xl border-4 border-white/20 backdrop-blur-sm`}
+                  className={`w-20 h-20  sm:w-24 sm:h-24 rounded-2xl bg-gradient-to-r ${benefit.gradient} flex flex-col items-center justify-center p-2 text-white shadow-xl border-4 border-white/20 backdrop-blur-sm`}
                 >
                   <div className="text-2xl sm:text-3xl mb-1">
                     {benefit.icon}

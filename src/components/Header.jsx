@@ -1,15 +1,12 @@
 import { ThemeToggle } from '.';
 import { motion } from 'framer-motion';
-import { Github, Linkedin } from 'lucide-react';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { SiLeetcode } from 'react-icons/si';
 
 export default function Header() {
   return (
-    <>
-      <header
-        className="fixed top-0 left-0 w-full z-50 px-4 py-3 sm:px-6 sm:py-4
-        flex justify-between items-center backdrop-blur-lg shadow-md bg-background text-text bg-opacity-90"
-      >
+    <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-lg shadow-md bg-background text-textLight dark:text-textDark bg-opacity-90">
+      <div className="max-w-7xl mx-auto flex justify-between items-center px-4 sm:px-6 py-3 sm:py-4 transition-all duration-300">
         {/* Logo */}
         <motion.h1
           initial={{ opacity: 0, x: -20 }}
@@ -18,7 +15,7 @@ export default function Header() {
           className="text-xl sm:text-2xl md:text-3xl leading-tight flex items-center"
         >
           <span className="text-primaryLight font-bold">G</span>{' '}
-          <span className=" text-accentLight font-bold">S</span>
+          <span className="text-accentLight font-bold">S</span>
         </motion.h1>
 
         {/* Right section */}
@@ -33,31 +30,34 @@ export default function Header() {
             href="https://github.com/GuptaShubham-11"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-text hover:text-accentLight dark:hover:text-accentDark transition-colors"
+            aria-label="GitHub"
+            className="hover:text-accentLight dark:hover:text-primaryLight transition-colors duration-300"
           >
-            <Github size={20} />
+            <FaGithub size={24} />
           </a>
           <a
             href="https://www.linkedin.com/in/guptashubham11"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-text hover:text-accentLight dark:hover:text-accentDark transition-colors"
+            aria-label="LinkedIn"
+            className="hover:text-accentLight dark:hover:text-primaryLight transition-colors duration-300"
           >
-            <Linkedin size={20} />
+            <FaLinkedin size={24} />
           </a>
           <a
-            href="https://leetcode.com/GuptaShubham-11"
+            href="https://leetcode.com/u/GuptaShubham-11/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-text hover:text-accentLight dark:hover:text-accentDark transition-colors"
+            aria-label="LeetCode"
+            className="hover:text-accentLight dark:hover:text-primaryLight transition-colors duration-300"
           >
-            <SiLeetcode size={20} />
+            <SiLeetcode size={24} />
           </a>
 
           {/* Theme Toggle */}
           <ThemeToggle />
         </motion.div>
-      </header>
-    </>
+      </div>
+    </header>
   );
 }
