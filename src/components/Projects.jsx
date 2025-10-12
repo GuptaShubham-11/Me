@@ -165,13 +165,12 @@ const Card = ({ title, type, onClick, description, technologies }) => {
         </h3>
         <div className="flex flex-col items-end gap-2">
           <span
-            className={`text-xs px-2 py-1 rounded-full ${
-              type === 'Backend'
-                ? 'bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300'
-                : type === 'Frontend'
-                  ? 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300'
-                  : 'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300'
-            }`}
+            className={`text-xs px-2 py-1 rounded-full ${type === 'Backend'
+              ? 'bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300'
+              : type === 'Frontend'
+                ? 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300'
+                : 'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300'
+              }`}
           >
             {type}
           </span>
@@ -256,11 +255,10 @@ const Modal = ({ project, onClose }) => {
                 </h2>
                 <div className="flex items-center gap-4 mt-2">
                   <span
-                    className={`text-xs px-2 py-1 rounded-full ${
-                      project.type === 'Business'
-                        ? 'bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300'
-                        : 'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300'
-                    }`}
+                    className={`text-sm px-2 py-1 rounded ${project.type === 'Business'
+                      ? 'bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300'
+                      : 'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300'
+                      }`}
                   >
                     {project.type}
                   </span>
@@ -282,17 +280,6 @@ const Modal = ({ project, onClose }) => {
                   </a>
                 </div>
               </div>
-              <span
-                className={`text-xs px-2 py-1 rounded-full ${
-                  project.status === 'Done'
-                    ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300'
-                    : project.status === 'In Progress'
-                      ? 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300'
-                      : 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300'
-                }`}
-              >
-                {project.status}
-              </span>
             </div>
 
             <p className="text-gray-600 dark:text-gray-300 mb-6">
@@ -307,10 +294,10 @@ const Modal = ({ project, onClose }) => {
                 {project.technologies.map((tech, idx) => (
                   <div
                     key={idx}
-                    className="flex items-center gap-2 px-3 py-1.5 rounded-md bg-gray-100 dark:bg-[#2a2a2a] text-gray-800 dark:text-gray-200 text-sm"
+                    className="flex items-center gap-2 px-3 py-1 rounded-md bg-gray-100 dark:bg-[#2a2a2a] text-gray-800 dark:text-gray-200 text-sm"
                   >
                     {tech.icon}
-                    <span>{tech.name}</span>
+                    {tech.name}
                   </div>
                 ))}
               </div>
@@ -372,15 +359,14 @@ const Projects = () => {
             <button
               key={type}
               onClick={() => setTypeFilter(type)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors flex items-center gap-2 ${
-                typeFilter === type
-                  ? type === 'Backend'
-                    ? 'bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300'
-                    : type === 'Frontend'
-                      ? 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300'
-                      : 'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300'
-                  : 'bg-gray-100 dark:bg-[#2a2a2a] text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-[#333]'
-              }`}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors flex items-center gap-2 ${typeFilter === type
+                ? type === 'Backend'
+                  ? 'bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300'
+                  : type === 'Frontend'
+                    ? 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300'
+                    : 'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300'
+                : 'bg-gray-100 dark:bg-[#2a2a2a] text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-[#333]'
+                }`}
             >
               {type === 'Frontend' ? (
                 <BsFront />

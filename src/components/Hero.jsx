@@ -22,12 +22,12 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative w-full  flex items-center justify-center overflow-hidden mt-20 "
+      className="relative w-full  flex items-center justify-center overflow-hidden mt-15 py-10"
     >
-      {/* Background elements */}
       <div className="absolute inset-0 flex justify-between items-center max-w-7xl mx-auto">
-        <div className="absolute top-10 left-10 w-72 h-72 rounded-full bg-[#5eaaa8]/10 blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-20 w-64 h-64 rounded-full bg-[#f25c54]/10 blur-3xl animate-pulse"></div>
+        {/* Background elements */}
+        <div className="absolute top-10 invisible md:visible left-20 w-72 h-72 rounded-full bg-[#5eaaa8]/10 blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 invisible sm:visible sm:right-20 w-64 h-64 rounded-full bg-[#f25c54]/10 blur-3xl animate-pulse"></div>
 
         <motion.div
           className="absolute top-1/3 left-1/4 w-8 h-8 rounded-full bg-[#5eaaa8]"
@@ -90,7 +90,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mb-8"
+            className="text-lg md:text-xl text-gray-600 dark:text-gray-300  mb-8 leading-tight"
           >
             I specialize in creating clean, modern, and scalable web
             applications.
@@ -108,7 +108,7 @@ export default function Hero() {
                   .getElementById('project')
                   ?.scrollIntoView({ behavior: 'smooth' })
               }
-              className="px-8 py-2 rounded cursor-pointer bg-gradient-to-r from-[#5eaaa8] to-[#5eaaa8] text-textLight dark:text-textDark font-semibold shadow-lg hover:shadow-xl transition-all"
+              className="px-8 py-2 rounded cursor-pointer bg-gradient-to-r from-[#5eaaa8] to-[#5eaaa8] text-textLight  font-semibold shadow-lg hover:shadow-xl transition-all"
               whileHover={{
                 background: 'linear-gradient(to right, #5eaaa8, #4c9e9c)',
               }}
@@ -140,8 +140,8 @@ export default function Hero() {
         >
           <div className="relative">
             {/* Decorative elements */}
-            <div className="absolute -top-6 -right-6 w-32 h-32 rounded-full bg-[#5eaaa8]/20 blur-xl z-0"></div>
-            <div className="absolute -bottom-6 -left-6 w-28 h-28 rounded-full bg-[#f25c54]/20 blur-xl z-0"></div>
+            <div className="absolute invisible sm:visible -top-6 -right-6 w-32 h-32 rounded-full bg-[#5eaaa8]/20 blur-xl z-0"></div>
+            <div className="absolute invisible sm:visible -bottom-6 -left-6 w-28 h-28 rounded-full bg-[#f25c54]/20 blur-xl z-0"></div>
 
             {/* Profile image container */}
             <div className="relative size-64 md:size-80 rounded-2xl overflow-hidden border-4 border-white shadow-2xl z-10">
@@ -176,7 +176,7 @@ export default function Hero() {
 
       {/* Scroll indicator */}
       <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
+        className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1.5 }}

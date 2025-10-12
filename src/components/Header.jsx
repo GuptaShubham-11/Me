@@ -6,7 +6,7 @@ import { SiLeetcode } from 'react-icons/si';
 export default function Header() {
   return (
     <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-lg shadow-md bg-background text-textLight dark:text-textDark bg-opacity-90">
-      <div className="max-w-7xl mx-auto flex justify-between items-center px-4 sm:px-6 py-3 sm:py-4 transition-all duration-300">
+      <div className="max-w-7xl mx-auto flex justify-between items-center W  px-4 sm:px-6 py-3 sm:py-4 transition-all duration-300">
         {/* Logo */}
         <motion.h1
           initial={{ opacity: 0, x: -20 }}

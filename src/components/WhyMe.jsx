@@ -70,7 +70,7 @@ export default function BenefitsStepper() {
   }, []);
 
   return (
-    <section id="whyme" className="py-20 bg-transparent overflow-x-hidden">
+    <section id="whyme" className="py-20 w-full bg-transparent overflow-x-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2
           className="text-4xl font-bold text-center mb-2 text-[#2e2e2e] dark:text-[#e8e6e3]"
