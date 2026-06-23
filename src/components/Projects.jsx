@@ -10,6 +10,7 @@ import {
   FaNodeJs,
   FaChartLine,
   FaBusinessTime,
+  FaMoneyBill,
 } from 'react-icons/fa';
 import {
   SiExpress,
@@ -25,9 +26,30 @@ import ShopEasy from '../assets/ShopEasy.jpeg';
 import KanbanBoard from '../assets/kanban-board.jpeg';
 import StayFinder from '../assets/StayFinder.png';
 import SolarSystem from '../assets/SolorSystem.jpeg';
+import Template from '../assets/template.png';
 import { BsBack, BsCode, BsFront } from 'react-icons/bs';
 
 const projects = [
+    {
+    id: -2,
+    title: 'NextJS SaaS Starter',
+    type: 'Full Stack',
+    description:
+      'A modern template to launch and build fast SaaS apps using Next.js.',
+    image: Template,
+    github: 'https://github.com/GuptaShubham-11/saas-template',
+    live: 'https://saas-template-kappa-nine.vercel.app',
+    technologies: [
+      { name: 'React', icon: <FaReact className="text-blue-400" /> },
+      { name: 'Next.js', icon: <FaNodeJs className="text-green-600" /> },
+      { name: 'DoDo', icon: <FaMoneyBill className="text-gray-400" /> },
+      { name: 'MongoDB', icon: <SiMongodb className="text-green-600" /> },
+      {
+        name: 'Tailwind CSS',
+        icon: <SiTailwindcss className="text-sky-400" />,
+      },
+    ],
+  },
   {
     id: 0,
     title: 'SmartTodo',
@@ -244,7 +266,7 @@ const Modal = ({ project, onClose }) => {
               alt={project.title}
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-[#151515] via-transparent to-transparent" />
+            <div className="absolute inset-0  bg-gradient-to-t from-white/30 dark:from-[#151515]/30 via-transparent to-transparent" />
           </div>
 
           <div className="p-6">
