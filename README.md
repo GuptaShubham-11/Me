@@ -1,85 +1,36 @@
-# Me
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-This is a personal portfolio website built using React, Tailwind CSS 4.0, and Framer Motion for animation.
+## Getting Started
 
-### It is a single-page application that showcases my work, skills, and experience as a full-stack developer.
+First, run the development server:
 
-## Technologies Used
-
-- **React**: A JavaScript library for building user interfaces.
-- **Tailwind CSS 4.0**: A utility-first CSS framework for designing responsive layouts.
-- **Redux**: A state management library.
-- **Framer Motion**: A library for adding animations to React components.
-- **EmailJS**: A JavaScript library for sending emails.
-- **Dark/Light Mode Toggle**: A button to switch between dark and light themes.
-
-> Above: A screenshot of the portfolio homepage.
-
-## Directory Structure
-
-```
-└── guptashubham-11-me/
-    ├── README.md
-    ├── eslint.config.js
-    ├── index.html
-    ├── package.json
-    ├── vite.config.js
-    ├── .prettierignore
-    ├── .prettierrc
-    ├── public/
-    └── src/
-        ├── App.css
-        ├── App.jsx
-        ├── index.css
-        ├── main.jsx
-        ├── assets/
-        ├── components/
-        │   ├── Footer.jsx
-        │   ├── Header.jsx
-        │   ├── Layout.jsx
-        │   ├── ThemeToggle.jsx
-        │   └── index.js
-        ├── features/
-        │   └── themeSlice.js
-        └── store/
-            └── store.js
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-## Installation
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-1. Clone the repository:
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-   ```
-   git clone https://github.com/guptashubham-11/me
-   ```
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-2. Navigate into the project directory:
+## Learn More
 
-   ```
-   cd me
-   ```
+To learn more about Next.js, take a look at the following resources:
 
-3. Install the dependencies:
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-   ```
-   npm install
-   ```
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-4. Run the project:
+## Deploy on Vercel
 
-   ```
-   npm run dev
-   ```
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-   The app will be running on `http://localhost:5173` by default.
-
-## Features
-
-- **Responsive Design**: The website is fully responsive and adjusts to different screen sizes.
-- **Dark/Light Mode Toggle**: Switch between dark and light themes with the theme toggle button.
-- **Custom Cursor**: An interactive custom cursor adds a personalized touch to the design.
-- **Smooth Animations**: The app uses Framer Motion for smooth animations and transitions.
-
-## Contributing
-
-Feel free to fork the repository and submit pull requests. Contributions are welcome!
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
