@@ -3,6 +3,7 @@ import { Sora, Syne } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import { CustomPostHogProvider } from "@/components/PostHogProvide";
+import { Providers } from "@/components/Provider";
 
 const sora = Sora({
   subsets: ['latin'],
@@ -26,13 +27,15 @@ export default function RootLayout({
       lang="en"
       className={`${sora.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full">
         <CustomPostHogProvider>
           <ThemeProvider
             attribute="class"
             defaultTheme="light"
           >
-            {children}
+            <Providers>
+              {children}
+            </Providers>
           </ThemeProvider>
         </CustomPostHogProvider>
       </body>

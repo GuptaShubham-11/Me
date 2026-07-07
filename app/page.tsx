@@ -1,12 +1,13 @@
 'use client';
 
 import { motion, Variants } from "framer-motion";
-import { useState } from "react";
 import { usePostHog } from "@posthog/react";
 import { Container } from "@/components/Container";
 import { Signature } from "@/components/Signature";
 import { ThemeToggle } from "@/components/Theme";
 import { RiGithubFill, RiLinksFill } from "@remixicon/react";
+import { useAnalytics } from "@/lib/hooks/useAnaylytics";
+import { AnimatedCounter } from "@/components/AnimatedCounter";
 
 
 const projects = [
@@ -47,8 +48,9 @@ const projects = [
   }
 ];
 
-
 export default function Home() {
+
+  const { data, isLoading } = useAnalytics();
   const posthog = usePostHog();
 
   const container = {
@@ -56,7 +58,7 @@ export default function Home() {
     show: {
       transition: {
         staggerChildren: 0.08,
-        delayChildren: 0.15,
+        delayChildren: 0.12,
       },
     },
   };
@@ -96,7 +98,7 @@ export default function Home() {
         variants={container}
         initial="hidden"
         animate="show"
-        className="space-y-6 leading-6 text-muted-foreground"
+        className="space-y-6 leading-6 text-muted-foreground max-w-prose"
       >
         <motion.section variants={item}>
 
@@ -163,7 +165,7 @@ export default function Home() {
                     }}
                     className="bg-muted font-medium"
                   >
-                    <td className="py-2 text-muted-foreground whitespace-nowrap px-2 border-border border-r font-mono">
+                    <td className="py-2 text-muted-foreground whitespace-nowrap px-2 border-border border-r">
                       {project.time}
                     </td>
                     <td className="py-2 px-2 border-border border-t">
@@ -339,8 +341,18 @@ export default function Home() {
       </motion.main>
 
       <footer className="flex items-center justify-between">
-        <span className="text-muted-foreground font-medium text-sm">
-          Nice to meet you!
+        <span className="text-sm font-medium text-muted-foreground">
+          Nice to meet you!{" "}
+          <span className="text-base text-foreground">
+            You are {isLoading ? (
+              <span className="animate-pulse">loading...</span>
+            ) : (
+              <>
+                <AnimatedCounter value={data?.visits || 239} />
+                <sup>th</sup>
+              </>
+            )}
+          </span>
         </span>
 
         <ThemeToggle />
